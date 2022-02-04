@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root{
+    --backColor: #2c2d2e;
+    --borderColor:#54595e;
+    --hoverColor: #f3f3f3;
+}
+body{
+    background-color:var(--backColor);
+    color:white;
+    font-family:"Open Sans", sans-serif;
+}
+.bodyContent{
+    display:flex;
+    width:100%;
+    max-width:1250px;
+    margin:0 auto;
+}
+.bodyContent .sideBar{
+    padding:1rem;
+    flex-basis:clamp(100px, 30%, 400px);
+    border:1px solid var(--borderColor);
+    border-radius:5px;
+    margin:0 0.6rem;
+}
+.sideBar h1, h2, h3, h4, h5{
+    margin:0;
+    padding:0 0 0.5rem 0;
+}
+.sideBar fieldset label{
+    display:block;
+    cursor:pointer;
+}
+.sideBar fieldset label:hover{
+    color:var(--hoverColor);
+}
+.sideBar fieldset{
+    padding:0.6rem 1rem;
+    margin-bottom:0.9rem;
+}
+.sideBar fieldset label.rangeLabel{
+    display:flex;
+    align-items:center;
+    
+    justify-content:space-between;
+}
+.sideBar fieldset label.rangeLabel input{
+    margin-top:0.2rem;
+}
+.sideBar fieldset label.rangeLabel i{
+    font-style:normal;
+}
+.gearList{
+    flex-grow:100;
+    margin:0 0.6rem;
+}
+.micObj{
+    padding:1rem;
+    border-radius:5px;
+    border:1px solid var(--borderColor);
+    width:100%;
+    display:none;
+    margin-bottom:1.5rem;
+}
+.micObj.active{
+    display:block;
+}
+.micObj h4{
+    font-size:2rem;
+}
+.micObj h4 small{
+    font-size:0.5em;
+
+}
+.micObj .micHead{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.micBody{
+    display:flex;
+    align-items:top;
+    justify-content:space-between;
+}
+.specTable{
+    flex-basis:clamp(100px, 40%, 400px);
+}
+.specTable.specNoClamp{
+    flex-basis:60%;
+    margin-left:3rem;
+}
+.specTable div{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0.4rem 0;
+}
+.specTable div:not(:last-child){
+    border-bottom:1px solid var(--borderColor);
+}
+.specTable span ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    text-align:right;
+}
+.caps{
+    text-transform:uppercase;
+}
+.usedOn ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+.usedOn{
+    flex-grow:50;
+    border-left:1px solid var(--borderColor);
+    border-right:1px solid var(--borderColor);
+    padding:0 1rem;
+    margin:0 1rem;
+    flex-basis:30%;
+}
+.usedOn ul li{
+    padding-left:0.5rem;
+}
+.characteristics ul{
+    list-style-type:none;
+    padding:0;
+    margin:0;
+    
+
+}
+.characteristics{
+    flex-grow:10;
+    flex-basis:30%;
+}
