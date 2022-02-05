@@ -12,14 +12,13 @@ body{
 }
 .bodyContent{
     display:flex;
-    width:100%;
+    width:calc(100% - 1.7rem);
     max-width:1250px;
     margin:0 auto;
 }
 .bodyContent .sideBar{
     padding:1rem;
     flex-basis:clamp(100px, 30%, 400px);
-    border:1px solid var(--borderColor);
     border-radius:5px;
     margin:0 0.6rem;
 }
@@ -58,7 +57,7 @@ body{
     padding:1rem;
     border-radius:5px;
     border:1px solid var(--borderColor);
-    width:100%;
+    width:calc(100% - 2rem);
     display:none;
     margin-bottom:1.5rem;
 }
@@ -133,4 +132,46 @@ body{
 .characteristics{
     flex-grow:10;
     flex-basis:30%;
+}
+.flexAlign{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.toggleFilters{
+    display:none;
+}
+@media(max-width:1160px){
+    .toggleFilters{
+        display:block;
+    }
+    .filters.active{
+        display:block;
+    }
+    .filters{
+        display:none;
+    }
+    .bodyContent{
+        display:flex;
+        flex-direction:column;
+    }
+}
+@media(max-width:825px){
+    
+    .micBody{
+        display:flex;
+        align-items:top;
+        justify-content:space-between;
+        flex-direction:column;
+    }
+    .usedOn{
+        border:none;
+        padding:0;
+        margin:0;
+        margin-bottom:1rem;
+        margin-top:1rem;
+    }
+    .usedOn ul li{
+        padding:0;
+    }
 }

@@ -13,66 +13,82 @@
     </div>
     <div class="bodyContent micContent active">
         <div class="sideBar">
-            <h2>Microphones</h2>
-            <fieldset id="micType">
-                <legend>Type</legend>
-                <label><input type="checkbox" value="SDC" /> Small Diaphragm Condenser</label>
-                <label><input type="checkbox" value="LDC" /> Large Diaphragm Condenser</label>
-                <label><input type="checkbox" value="Dynamic" /> Dynamic</label>
-                <label><input type="checkbox" value="Ribbon" /> Ribbon</label>
-            </fieldset>
-            <fieldset>
-                <legend>Polar Pattern</legend>
-                <label><input type="checkbox" id="sdcMics" /> Cardioid</label>
-                <label><input type="checkbox" id="ldcMics" /> Figure-8</label>
-                <label><input type="checkbox" id="dynamicMics" /> Omni</label>
-                <label><input type="checkbox" id="ribonMics" /> Boundary</label>
-            </fieldset>
-            <fieldset>
-                <legend>Frequency Response</legend>
-                <label class="rangeLabel">
-                    <span>Lowest Freq.</span>
-                    <span class="frequency"><i>20</i>hz</span>
-                    <input type="range" id="sdcMics" />
-                </label>
-                <label class="rangeLabel">
-                    <span>Highest Freq.</span>
-                    <span class="frequency"><i>20</i>khz</span>
-                    <input type="range" id="sdcMics" />
-                </label>
-                
-            </fieldset>
-            <fieldset>
-                <legend>Maximum SPL</legend>
-                <label class="rangeLabel">
-                    <span>Maximum SPL</span>
-                    <span class="frequency"><i>120</i>dB</span>
-                    <input type="range" id="sdcMics" />
-                </label>
-            </fieldset>
-            <fieldset>
-                <legend>Common Uses</legend>
-                <label><input type="checkbox" id="sdcMics" /> Acoustic Guitar</label>
-                <label><input type="checkbox" id="ldcMics" /> Electric Guitar</label>
-                <label><input type="checkbox" id="dynamicMics" /> Electric Bass</label>
-                <label><input type="checkbox" id="ribonMics" /> Vocals</label>
-                <label><input type="checkbox" id="sdcMics" /> Acoustic Piano</label>
-                <label><input type="checkbox" id="ldcMics" /> Violin/Viola/Cello</label>
-                <label><input type="checkbox" id="dynamicMics" /> Trumpet/Sax/Horns</label>
-                <label><input type="checkbox" id="sdcMics" /> Drum Overheads</label>
-                <label><input type="checkbox" id="ldcMics" /> Snare Drum</label>
-                <label><input type="checkbox" id="dynamicMics" /> Toms</label>
-                <label><input type="checkbox" id="ribonMics" /> Hats/Cymbal Close Mics</label>
-                <label><input type="checkbox" id="sdcMics" /> Kick</label>
-                <label><input type="checkbox" id="ldcMics" /> Drum Room</label>
-                <label><input type="checkbox" id="dynamicMics" /> General Purpose</label>
-            </fieldset>
-            <fieldset>
-                <legend>Characteristics</legend>
-                <label><input type="checkbox" id="sdcMics" /> Bright</label>
-                <label><input type="checkbox" id="ldcMics" /> Transparent</label>
+            <h2 class="flexAlign"><span>Filters</span> <button onclick="clearFilters()">Clear</button><button onclick="toggleFilters()" class="toggleFilters">Show</button></h2>
+            <div class="filters">
+                <fieldset id="micType">
+                    <legend>Type</legend>
+                    <label><input type="checkbox" value="SDC" onchange='updateFilter(this, "type")'/> Small Diaphragm Condenser</label>
+                    <label><input type="checkbox" value="LDC" onchange='updateFilter(this, "type")'/> Large Diaphragm Condenser</label>
+                    <label><input type="checkbox" value="Dynamic" onchange='updateFilter(this, "type")' /> Dynamic</label>
+                    <label><input type="checkbox" value="Ribbon" onchange='updateFilter(this, "type")' /> Ribbon</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Polar Pattern</legend>
+                    <label><input type="checkbox" value="Cardioid" onchange='updateFilter(this, "polar")'/> Cardioid</label>
+                    <label><input type="checkbox" value="Figure-8" onchange='updateFilter(this, "polar")' /> Figure-8</label>
+                    <label><input type="checkbox" value="Omni" onchange='updateFilter(this, "polar")' /> Omni</label>
+                    <label><input type="checkbox" value="Hemi" onchange='updateFilter(this, "polar")' /> Hemi</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Frequency Response</legend>
+                    <label class="rangeLabel">
+                        <span>Lowest Freq.</span>
+                        <span class="frequency"><i>100</i>hz</span>
+                        <input type="range" min="10" max="100" onchange='updateFilter(this, "lowFreq")' oninput="inputUpdate(this)" value="100" step="1" />
+                    </label>
+                    <label class="rangeLabel">
+                        <span>Highest Freq.</span>
+                        <span class="frequency"><i>10</i>khz</span>
+                        <input type="range" min="10" max="50" onchange='updateFilter(this, "highFreq")' oninput="inputUpdate(this)" value="10" step="1" />
+                    </label>
+                    
+                </fieldset>
+                <fieldset>
+                    <legend>Maximum SPL</legend>
+                    <label class="rangeLabel">
+                        <span>Maximum SPL</span>
+                        <span class="frequency"><i>90</i>dB</span>
+                        <input type="range" min="90" max="200" onchange='updateFilter(this, "spl")' oninput="inputUpdate(this)" value="90" step="1" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Common Uses</legend>
+                    <label><input type="checkbox" value="Acoustic Guitar" onchange='updateFilter(this, "uses")' /> Acoustic Guitar</label>
+                    <label><input type="checkbox" value="Electric Guitar" onchange='updateFilter(this, "uses")' /> Electric Guitar</label>
+                    <label><input type="checkbox" value="Electric Bass" onchange='updateFilter(this, "uses")' /> Electric Bass</label>
+                    <label><input type="checkbox" value="Vocals" onchange='updateFilter(this, "uses")' /> Vocals</label>
+                    <label><input type="checkbox" value="Acoustic Piano" onchange='updateFilter(this, "uses")' /> Acoustic Piano</label>
+                    <label><input type="checkbox" value="Violin/Viola/Cello" onchange='updateFilter(this, "uses")' /> Violin/Viola/Cello</label>
+                    <label><input type="checkbox" value="Trumpet/Sax/Horns" onchange='updateFilter(this, "uses")' /> Trumpet/Sax/Horns</label>
+                    <label><input type="checkbox" value="Drum Overheads" onchange='updateFilter(this, "uses")' /> Drum Overheads</label>
+                    <label><input type="checkbox" value="Snare Drum" onchange='updateFilter(this, "uses")' /> Snare Drum</label>
+                    <label><input type="checkbox" value="Toms" onchange='updateFilter(this, "uses")' /> Toms</label>
+                    <label><input type="checkbox" value="Hats/Cymbal Close Mics" onchange='updateFilter(this, "uses")' /> Hats/Cymbal Close Mics</label>
+                    <label><input type="checkbox" value="Kick" onchange='updateFilter(this, "uses")' /> Kick</label>
+                    <label><input type="checkbox" value="Drum Room" onchange='updateFilter(this, "uses")' /> Drum Room</label>
+                    <label><input type="checkbox" value="General Purpose" onchange='updateFilter(this, "uses")' /> General Purpose</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Characteristics</legend>
+                    <label><input type="checkbox" value="Bright" onchange='updateFilter(this, "chars")' /> Bright</label>
+                    <label><input type="checkbox" value="Transparent" onchange='updateFilter(this, "chars")' /> Transparent</label>
+                    <label><input type="checkbox" value="Dark" onchange='updateFilter(this, "chars")' /> Dark</label>
+                    <label><input type="checkbox" value="Saturated" onchange='updateFilter(this, "chars")' /> Saturated</label>
+                    <label><input type="checkbox" value="Neutral" onchange='updateFilter(this, "chars")' /> Neutral</label>
+                    <label><input type="checkbox" value="Punchy" onchange='updateFilter(this, "chars")' /> Punchy</label>
+                    <label><input type="checkbox" value="Smooth" onchange='updateFilter(this, "chars")' /> Smooth</label>
 
-            </fieldset>
+                </fieldset>
+                <fieldset>
+                    <legend>Lending Level Required</legend>
+                    <p>Mics not in the SMC Library will show up unless one or more lending levels are selected.</p>
+                    <label><input type="checkbox" value="1" onchange='updateFilter(this, "level")' /> 1</label>
+                    <label><input type="checkbox" value="2" onchange='updateFilter(this, "level")' /> 2</label>
+                    <label><input type="checkbox" value="3" onchange='updateFilter(this, "level")' /> 3</label>
+                    <label><input type="checkbox" value="4" onchange='updateFilter(this, "level")' /> 4</label>
+                    <label><input type="checkbox" value="Request" onchange='updateFilter(this, "level")' /> Request</label>
+                </fieldset>
+            </div>
         </div>
         <div class="gearList" id="gearList">
             
