@@ -241,6 +241,9 @@ fieldset legend{
         padding:1rem;
         padding-bottom:5rem;
     }
+    .filters fieldset:last-child{
+        margin-bottom:4rem;
+    }
     .bodyContent{
         display:flex;
         flex-direction:column;
