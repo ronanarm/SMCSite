@@ -242,7 +242,7 @@ fieldset legend{
         padding-bottom:5rem;
     }
     .filters fieldset:last-child{
-        margin-bottom:4rem;
+        margin-bottom:14rem;
     }
     .bodyContent{
         display:flex;
