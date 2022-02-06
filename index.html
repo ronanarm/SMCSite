@@ -13,8 +13,14 @@
     </div>
     <div class="bodyContent micContent active">
         <div class="sideBar">
-            <h2 class="flexAlign"><span>Filters</span> <button onclick="clearFilters()">Clear</button><button onclick="toggleFilters()" class="toggleFilters">Show</button></h2>
+            <h2 class="flexAlign"><span>Filters</span> <button onclick="clearFilters()" class="hideMobile">Clear</button><button onclick="toggleFilters()" class="toggleFilters">Show</button></h2>
             <div class="filters">
+                <div class="hideDesktop alignBtns">
+                    <button onclick="clearFilters()" class="btnMain">Clear</button>
+                    <button onclick="toggleFilters()" class="btnMain">Close</button>
+                </div>
+                
+                
                 <fieldset id="micType">
                     <legend>Type</legend>
                     <label><input type="checkbox" value="SDC" onchange='updateFilter(this, "type")'/> Small Diaphragm Condenser</label>
