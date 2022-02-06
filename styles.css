@@ -239,6 +239,7 @@ fieldset legend{
         left:0;
         top:0;
         padding:1rem;
+        padding-bottom:5rem;
     }
     .bodyContent{
         display:flex;
