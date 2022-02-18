@@ -39,6 +39,7 @@ const mics = {
         "polar": ["Figure-8"],
         "highestFreq": 20,
         "lowestFreq": 30,
+        "phantom": "NO",
         "SPL": 140,
         "hasPad": false,
         "type": "Ribbon",
@@ -58,6 +59,7 @@ const mics = {
         ]
     },
     "R84": {
+        "phantom": "NO",
         "manufacturer": "AEA",
         "polar": ["Figure-8"],
         "highestFreq": 20,
@@ -84,6 +86,7 @@ const mics = {
         ]
     },
     "C 451 B": {
+        "phantom": "YES",
         "manufacturer": "AKG",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -105,6 +108,7 @@ const mics = {
         ]
     },
     "C414 XLII": {
+        "phantom": "YES",
         "manufacturer": "AKG",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -130,6 +134,7 @@ const mics = {
         ]
     },
     "C414 XLS": {
+        "phantom": "YES",
         "manufacturer": "AKG",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -155,6 +160,7 @@ const mics = {
         ]
     },
     "D112 MKII": {
+        "phantom": "NO",
         "manufacturer": "AKG",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -173,6 +179,7 @@ const mics = {
         ]
     },
     "4006A": {
+        "phantom": "YES",
         "manufacturer": "DPA",
         "polar": ["Omni"],
         "highestFreq": 20,
@@ -196,6 +203,7 @@ const mics = {
         ]
     },
     "4011A": {
+        "phantom": "YES",
         "manufacturer": "DPA",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -220,6 +228,7 @@ const mics = {
         ]
     },
     "4099 Extreme SPL": {
+        "phantom": "YES",
         "manufacturer": "DPA",
         "polar": ["Cardioid"],
         "highestFreq": 15,
@@ -240,6 +249,7 @@ const mics = {
         ]
     },
     "4099 Loud SPL": {
+        "phantom": "YES",
         "manufacturer": "DPA",
         "polar": ["Cardioid"],
         "highestFreq": 15,
@@ -260,6 +270,7 @@ const mics = {
         ]
     },
     "TC30K": {
+        "phantom": "YES",
         "manufacturer": "Earthworks",
         "polar": ["Omni"],
         "highestFreq": 30,
@@ -283,6 +294,7 @@ const mics = {
         ]
     },
     "RE20": {
+        "phantom": "NO",
         "manufacturer": "Electro-Voice",
         "polar": ["Cardioid"],
         "highestFreq": 18,
@@ -305,6 +317,7 @@ const mics = {
         ]
     },
     "MA-201 FET": {
+        "phantom": "YES",
         "manufacturer": "Mojave",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -330,6 +343,7 @@ const mics = {
         ]
     },
     "KM130": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Omni"],
         "highestFreq": 20,
@@ -354,6 +368,7 @@ const mics = {
         ]
     },
     "KM143": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -380,6 +395,7 @@ const mics = {
         ]
     },
     "KM184": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -406,6 +422,7 @@ const mics = {
         ]
     },
     "M149 Tube": {
+        "phantom": "NO",
         "manufacturer": "Neumann",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -426,6 +443,7 @@ const mics = {
         ]
     },
     "TLM49": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -446,6 +464,7 @@ const mics = {
         ]
     },
     "U47 FET": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Cardioid"],
         "highestFreq": 16,
@@ -465,6 +484,7 @@ const mics = {
         ]
     },
     "U87 Ai": {
+        "phantom": "YES",
         "manufacturer": "Neumann",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -490,6 +510,7 @@ const mics = {
         ]
     },
     "NT5": {
+        "phantom": "YES",
         "manufacturer": "Rode",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -513,6 +534,7 @@ const mics = {
         ]
     },
     "R10": {
+        "phantom": "NO",
         "manufacturer": "Royer",
         "polar": ["Figure-8"],
         "highestFreq": 15,
@@ -535,6 +557,7 @@ const mics = {
         ]
     },
     "R121": {
+        "phantom": "NO",
         "manufacturer": "Royer",
         "polar": ["Cardioid", "Figure-8", "Omni", "Hemi"],
         "highestFreq": 15,
@@ -557,6 +580,7 @@ const mics = {
         ]
     },
     "CMC 6 MK4": {
+        "phantom": "YES",
         "manufacturer": "Schoeps",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -578,6 +602,7 @@ const mics = {
         ]
     },
     "e604": {
+        "phantom": "NO",
         "manufacturer": "Sennheiser",
         "polar": ["Cardioid"],
         "highestFreq": 18,
@@ -595,6 +620,7 @@ const mics = {
         ]
     },
     "e901": {
+        "phantom": "YES",
         "manufacturer": "Sennheiser",
         "polar": ["Hemi"],
         "highestFreq": 20,
@@ -611,6 +637,7 @@ const mics = {
         ]
     },
     "MD 421 II": {
+        "phantom": "NO",
         "manufacturer": "Sennheiser",
         "polar": ["Cardioid"],
         "highestFreq": 17,
@@ -636,6 +663,7 @@ const mics = {
         ]
     },
     "Beta 52A": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 10,
@@ -654,6 +682,7 @@ const mics = {
         ]
     },
     "Beta 56A": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 16,
@@ -671,6 +700,7 @@ const mics = {
         ]
     },
     "SM7B": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -693,6 +723,7 @@ const mics = {
         ]
     },
     "SM57": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 15,
@@ -715,6 +746,7 @@ const mics = {
         ]
     },
     "SM58": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 15,
@@ -738,6 +770,7 @@ const mics = {
         ]
     },
     "Super 55": {
+        "phantom": "NO",
         "manufacturer": "Shure",
         "polar": ["Cardioid"],
         "highestFreq": 17,
@@ -755,6 +788,7 @@ const mics = {
         ]
     },
     "ELA M 260": {
+        "phantom": "NO",
         "manufacturer": "Telefunken",
         "polar": ["Cardioid", "Omni"],
         "highestFreq": 20,
@@ -779,6 +813,7 @@ const mics = {
         ]
     },
     "M80 SH": {
+        "phantom": "NO",
         "manufacturer": "Telefunken",
         "polar": ["Cardioid"],
         "highestFreq": 18,
@@ -796,6 +831,7 @@ const mics = {
         ]
     },
     "M81 SH": {
+        "phantom": "NO",
         "manufacturer": "Telefunken",
         "polar": ["Cardioid"],
         "highestFreq": 18,
@@ -813,6 +849,7 @@ const mics = {
         ]
     },
     "M82": {
+        "phantom": "NO",
         "manufacturer": "Telefunken",
         "polar": ["Cardioid"],
         "highestFreq": 18,
@@ -829,6 +866,7 @@ const mics = {
         ]
     },
     "WA-47": {
+        "phantom": "NO",
         "manufacturer": "Warm Audio",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -854,6 +892,7 @@ const mics = {
         ]
     },
     "WA-84": {
+        "phantom": "YES",
         "manufacturer": "Warm Audio",
         "polar": ["Cardioid", "Omni"],
         "highestFreq": 20,
@@ -880,6 +919,7 @@ const mics = {
         ]
     },
     "WA-87": {
+        "phantom": "YES",
         "manufacturer": "Warm Audio",
         "polar": ["Cardioid", "Figure-8", "Omni", "Hemi"],
         "highestFreq": 20,
@@ -906,6 +946,7 @@ const mics = {
         ]
     },
     "KSM44": {
+        "phantom": "YES",
         "manufacturer": "Shure",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
@@ -935,6 +976,7 @@ const mics = {
         ]
     },
     "Origin": {
+        "phantom": "YES",
         "manufacturer": "Aston",
         "polar": ["Cardioid"],
         "highestFreq": 20,
@@ -962,6 +1004,7 @@ const mics = {
         ]
     },
     "BV12": {
+        "phantom": "NO",
         "manufacturer": "Avantone",
         "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,

@@ -46,6 +46,12 @@ function createMic (micName, micData){
                     </span>
                 </div>
                 <div>
+                    <b>Requires Phantom Power</b>
+                    <span>
+                        <span class="phantom">${micData.phantom}</span>
+                    </span>
+                </div>
+                <div>
                     <b>Frequency Response</b>
                     <span>
                         <span class="lowFreq">${micData.lowestFreq}</span>Hz - <span class="highFreq">${micData.highestFreq}</span>kHz
