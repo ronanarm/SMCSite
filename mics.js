@@ -581,7 +581,7 @@ const mics = {
     "R121": {
         "phantom": "NO",
         "manufacturer": "Royer",
-        "polar": ["Cardioid", "Figure-8", "Omni", "Hemi"],
+        "polar": ["Figure-8"],
         "highestFreq": 15,
         "lowestFreq": 30,
         "SPL": 135,
@@ -961,7 +961,7 @@ const mics = {
     "WA-87": {
         "phantom": "YES",
         "manufacturer": "Warm Audio",
-        "polar": ["Cardioid", "Figure-8", "Omni", "Hemi"],
+        "polar": ["Cardioid", "Figure-8", "Omni"],
         "highestFreq": 20,
         "lowestFreq": 20,
         "SPL": 125,

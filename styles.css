@@ -1,383 +1,474 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
-:root{
+:root {
     --backColor: #1d202a;
-    --borderColor:#74707a;
+    --borderColor: #74707a;
     --hoverColor: #f3f3f3;
     --backBoxes: #232632;
-    --boxBorder: #2C3040;
-    --buttonBack:#2C3040;
+    --boxBorder: #2c3040;
+    --buttonBack: #2c3040;
     --buttonHover: #3b4051;
+    --flashcardBack: #f3f3f3;
+    --flashcardMain: #fff;
+    --flashcardText: #000;
+    --flashcardAccentText: #666;
 }
-body{
-    background-color:var(--backColor);
-    color:white;
-    font-family:"Open Sans", sans-serif;
+body {
+    background-color: var(--backColor);
+    color: white;
+    font-family: "Open Sans", sans-serif;
 }
-.bodyContent{
-    display:flex;
-    width:calc(100% - 1.7rem);
-    max-width:1250px;
-    margin:0 auto;
+.bodyContent {
+    display: flex;
+    width: calc(100% - 1.7rem);
+    max-width: 1250px;
+    margin: 0 auto;
 }
-.bodyContent .sideBar{
-    padding:1rem;
-    flex-basis:clamp(100px, 30%, 400px);
-    border-radius:5px;
-    margin:0 0.6rem;
+.bodyContent .sideBar {
+    padding: 1rem;
+    flex-basis: clamp(100px, 30%, 400px);
+    border-radius: 5px;
+    margin: 0 0.6rem;
 }
-.sideBar h1, h2, h3, h4, h5{
-    margin:0;
-    padding:0 0 0.5rem 0;
+.sideBar h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
 }
 
-.sideBar fieldset label{
-    display:block;
-    cursor:pointer;
+.sideBar fieldset label {
+    display: block;
+    cursor: pointer;
 }
-.sideBar fieldset label:hover{
-    color:var(--hoverColor);
+.sideBar fieldset label:hover {
+    color: var(--hoverColor);
 }
-.sideBar fieldset{
-    padding:0.6rem 1rem;
-    margin-bottom:0.9rem;
+.sideBar fieldset {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.9rem;
 }
-.sideBar fieldset label.rangeLabel{
-    display:flex;
-    align-items:center;
-    
-    justify-content:space-between;
-}
-.sideBar fieldset label.rangeLabel input{
-    margin-top:0.2rem;
-}
-.sideBar fieldset label.rangeLabel i{
-    font-style:normal;
-}
-.gearList{
-    flex-grow:100;
-    margin:0 0.6rem;
-}
-.micObj{
-    padding:1rem;
-    border-radius:5px;
-    border:1px solid var(--boxBorder);
-    width:calc(100% - 2rem);
-    display:none;
-    margin-bottom:1.5rem;
-    background-color:var(--backBoxes);
-}
-.micObj.active{
-    display:block;
-}
-.micObj h4{
-    font-size:2rem;
-}
-.micObj h4 small{
-    font-size:0.5em;
+.sideBar fieldset label.rangeLabel {
+    display: flex;
+    align-items: center;
 
+    justify-content: space-between;
 }
-.micObj .micHead{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+.sideBar fieldset label.rangeLabel input {
+    margin-top: 0.2rem;
 }
-.micBody{
-    display:flex;
-    align-items:top;
-    justify-content:space-between;
-
+.sideBar fieldset label.rangeLabel i {
+    font-style: normal;
 }
-.specTable{
-    flex-basis:clamp(100px, 40%, 400px);
+.gearList {
+    flex-grow: 100;
+    margin: 0 0.6rem;
 }
-.specTable.specNoClamp{
-    flex-basis:60%;
-    margin-left:3rem;
+.micObj {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--boxBorder);
+    width: calc(100% - 2rem);
+    display: none;
+    margin-bottom: 1.5rem;
+    background-color: var(--backBoxes);
 }
-.specTable div{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0.4rem 0;
+.micObj.active {
+    display: block;
 }
-.specTable div:not(:last-child){
-    border-bottom:1px solid var(--borderColor);
+.micObj h4 {
+    font-size: 2rem;
 }
-.specTable span ul{
-    list-style-type:none;
-    padding:0;
-    margin:0;
-    text-align:right;
+.micObj h4 small {
+    font-size: 0.5em;
 }
-.caps{
-    text-transform:uppercase;
+.micObj .micHead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.usedOn ul{
-    list-style-type:none;
-    margin:0;
-    padding:0;
+.micBody {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
 }
-.usedOn{
-    flex-grow:50;
-    border-left:1px solid var(--borderColor);
-    border-right:1px solid var(--borderColor);
-    padding:0 1rem;
-    margin:0 1rem;
-    flex-basis:30%;
+.specTable {
+    flex-basis: clamp(100px, 40%, 400px);
 }
-.usedOn ul li{
-    padding-left:0.5rem;
+.specTable.specNoClamp {
+    flex-basis: 60%;
+    margin-left: 3rem;
 }
-.characteristics ul{
-    list-style-type:none;
-    padding:0;
-    margin:0;
-    
-
+.specTable div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
 }
-.characteristics{
-    flex-grow:10;
-    flex-basis:30%;
+.specTable div:not(:last-child) {
+    border-bottom: 1px solid var(--borderColor);
 }
-.flexAlign{
-    display:flex;
-    align-items:center;
+.specTable span ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.caps {
+    text-transform: uppercase;
+}
+.usedOn ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.usedOn {
+    flex-grow: 50;
+    border-left: 1px solid var(--borderColor);
+    border-right: 1px solid var(--borderColor);
+    padding: 0 1rem;
+    margin: 0 1rem;
+    flex-basis: 30%;
+}
+.usedOn ul li {
+    padding-left: 0.5rem;
+}
+.characteristics ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.characteristics {
+    flex-grow: 10;
+    flex-basis: 30%;
+}
+.flexAlign {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid var(--boxBorder);
-    margin-bottom:1rem;
-    text-transform:uppercase;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
 }
-.flexAlign button, .btnMain{
+.flexAlign button,
+.btnMain {
     border: none;
     padding: 0.5rem 1rem;
     margin: 0;
     text-decoration: none;
     color: #ffffff;
-    background:transparent;
+    background: transparent;
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius:4px;
-    position:relative;
-    overflow:hidden;
-    transition:box-shadow 0.4s;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s;
 }
-.flexAlign button:before, .btnMain:before{
-    background-color:var(--boxBorder);
-    content:"";
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:-1;
+.flexAlign button:before,
+.btnMain:before {
+    background-color: var(--boxBorder);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-.flexAlign button:after, .btnMain:after{
-    background-color:var(--buttonHover);
-    content:"";
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:-100%;
-    z-index:-1;
-    transition:all 0.2s;
+.flexAlign button:after,
+.btnMain:after {
+    background-color: var(--buttonHover);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.2s;
 }
-.flexAlign button:hover, .btnMain:hover{
-    box-shadow:0px 0px 10px 0px var(--buttonHover)
+.flexAlign button:hover,
+.btnMain:hover {
+    box-shadow: 0px 0px 10px 0px var(--buttonHover);
 }
-.flexAlign button:hover:after, .btnMain:hover:after{
-    left:0;
+.flexAlign button:hover:after,
+.btnMain:hover:after {
+    left: 0;
 }
-.toggleFilters{
-    display:none;
+.toggleFilters {
+    display: none;
 }
-fieldset{
-    border-color:var(--boxBorder);
-    border-style:solid;
+fieldset {
+    border-color: var(--boxBorder);
+    border-style: solid;
 }
-fieldset legend{
-    background-color:var(--boxBorder);
-    padding:0.4rem 1rem;
+fieldset legend {
+    background-color: var(--boxBorder);
+    padding: 0.4rem 1rem;
 }
 
-@media (min-width:1161px) {
-    .hideDesktop{
-        display:none !important;
+@media (min-width: 1161px) {
+    .hideDesktop {
+        display: none !important;
     }
 }
-@media(max-width:1160px){
-    .alignBtns{
-        width:100%;
-        display:flex;
+@media (max-width: 1160px) {
+    .alignBtns {
+        width: 100%;
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom:1rem;
+        margin-bottom: 1rem;
     }
-    .hideMobile{
-        display:none !important;
+    .hideMobile {
+        display: none !important;
     }
-    .toggleFilters{
-        display:block;
+    .toggleFilters {
+        display: block;
     }
-    .filters.active{
-        display:block;
+    .filters.active {
+        display: block;
     }
-    .filters{
-        display:none;
-        position:fixed;
-        width:calc(100vw - 2rem);
-        height:100vh;
-        overflow:scroll;
-        background-color:var(--backBoxes);
-        left:0;
-        top:0;
-        padding:1rem;
-        padding-bottom:5rem;
+    .filters {
+        display: none;
+        position: fixed;
+        width: calc(100vw - 2rem);
+        height: 100vh;
+        overflow: scroll;
+        background-color: var(--backBoxes);
+        left: 0;
+        top: 0;
+        padding: 1rem;
+        padding-bottom: 5rem;
     }
-    .filters fieldset:last-child{
-        margin-bottom:14rem;
+    .filters fieldset:last-child {
+        margin-bottom: 14rem;
     }
-    .bodyContent{
-        display:flex;
-        flex-direction:column;
-        width:100%;
+    .bodyContent {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
-    .bodyContent .sideBar{
-        position:fixed;
-        background-color:var(--backBoxes);
-        top:0;
-        display:block;
-        border-radius:0;
-        width:calc(100% - 2rem);
-        margin:0;
-        left:0;
-        padding-bottom:0;
-        border-bottom:3px solid var(--boxBorder);
+    .bodyContent .sideBar {
+        position: fixed;
+        background-color: var(--backBoxes);
+        top: 0;
+        display: block;
+        border-radius: 0;
+        width: calc(100% - 2rem);
+        margin: 0;
+        left: 0;
+        padding-bottom: 0;
+        border-bottom: 3px solid var(--boxBorder);
     }
-    .sideBar .flexAlign{
-        border:none;
-        margin-bottom:0.4rem;
+    .sideBar .flexAlign {
+        border: none;
+        margin-bottom: 0.4rem;
     }
-    .sideBar h2{
-        margin:0;
+    .sideBar h2 {
+        margin: 0;
     }
-    body{
-        margin-top:6rem;
-    }
-}
-@media(max-width:825px){
-    
-    .micBody{
-        display:flex;
-        align-items:top;
-        justify-content:space-between;
-        flex-direction:column;
-    }
-    .usedOn{
-        border:none;
-        padding:0;
-        margin:0;
-        margin-bottom:1rem;
-        margin-top:1rem;
-    }
-    .usedOn ul li{
-        padding:0;
+    body {
+        margin-top: 6rem;
     }
 }
-.modalBack{
-    display:none;
-    position:fixed;
-    left:0;
-    top:0;
-    width:100vw;
-    height:100vh;
-    background-color:black;
-    opacity:0.5;
-    z-index:100000;
+@media (max-width: 825px) {
+    .micBody {
+        display: flex;
+        align-items: top;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .usedOn {
+        border: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    .usedOn ul li {
+        padding: 0;
+    }
 }
-.modalBack.active{
-    display:block;
+.modalBack {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 100000;
 }
-.micImgBox{
-    background-color:white;
-    position:fixed;
-    max-height:clamp(20vh, auto, 80vh);
-    max-width:clamp(20vw, auto, 80vw);
-    text-align:center;
-    top:10vh;
-    left:50%;
-    display:none;
-    background-color:white;
-    padding:5rem;
-    align-items:center;
-    justify-content:space-around;
-    transform:translate(-50%, 0%);
-    border-radius:0.5rem;
-    z-index:100000;
+.modalBack.active {
+    display: block;
 }
-.micImgBox.active{
-    display:block;
-
+.micImgBox {
+    background-color: white;
+    position: fixed;
+    max-height: clamp(20vh, auto, 80vh);
+    max-width: clamp(20vw, auto, 80vw);
+    text-align: center;
+    top: 10vh;
+    left: 50%;
+    display: none;
+    background-color: white;
+    padding: 5rem;
+    align-items: center;
+    justify-content: space-around;
+    transform: translate(-50%, 0%);
+    border-radius: 0.5rem;
+    z-index: 100000;
 }
-.micImgBox img{
-
-max-width:60vw;
-   
+.micImgBox.active {
+    display: block;
 }
-.btn{
+.micImgBox img {
+    max-width: 60vw;
+}
+.btn {
     border: none;
-    
+
     padding: 0.3rem 0.6rem;
     margin: 0;
-    margin-left:0.4rem;
+    margin-left: 0.4rem;
     text-decoration: none;
     color: #ffffff;
-    background:transparent;
+    background: transparent;
     font-family: "Open Sans", sans-serif;
     font-size: 0.85rem;
     cursor: pointer;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border-radius:4px;
-    position:relative;
-    overflow:hidden;
-    transition:box-shadow 0.4s;
-    z-index:100;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s;
+    z-index: 100;
 }
-.btn:before{
-    background-color:var(--boxBorder);
-    content:"";
+.btn.btnLarge {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+}
+.btn:before {
+    background-color: var(--boxBorder);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.btn:after {
+    background-color: var(--buttonHover);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.2s;
+}
+.btn:hover {
+    box-shadow: 0px 0px 10px 0px var(--buttonHover);
+}
+.btn:hover:after {
+    left: 0;
+}
+.flashcards::before {
+    background-color: var(--flashcardBack);
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+.flashcards {
+    z-index: 1001;
+    position: absolute;
+    width: calc(100% - 1.7rem);
+    max-width: 1250px;
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    display: flex;
+}
+.flashcards .micObj {
+    margin-left: 3%;
+    margin-right: 3%;
+    scroll-snap-align: center;
+    position: relative;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 0px solid var(--boxBorder);
+    min-width: 70%;
+    min-height:80vh;
+    margin-bottom: 1.5rem;
+    background-color: var(--flashcardMain);
+    color: var(--flashcardText);
+    perspective:1000px;
+}
+.flashCards .micObj .flashContainer{
+position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flashcards .micObj:hover .flashContainer {
+    transform: rotateY(180deg);
+}
+
+.flashcards .micObj .micHead, .flashcards .micObj .micBody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flashcards .micObj .micHead {
+    background-color: #bbb;
+    color: black;
+    z-index:1001;
+}
+
+.flashcards .micObj .micBody {
+    background-color: dodgerblue;
+    color: black;
+    transform: rotateY(180deg);
+    z-index:1000;
+}
+.maintenanceTag{
     display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
+    width:100vw;
+    height:100vh;
     top:0;
     left:0;
-    z-index:-1;
-}
-.btn:after{
-    background-color:var(--buttonHover);
-    content:"";
-    display:block;
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:-100%;
-    z-index:-1;
-    transition:all 0.2s;
-}
-.btn:hover{
-    box-shadow:0px 0px 10px 0px var(--buttonHover)
-}
-.btn:hover:after{
-    left:0;
+    z-index:100000;
+    background-color:var(--backBoxes);
+    color:white;
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
 }

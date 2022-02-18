@@ -4,6 +4,8 @@ Object.keys(mics).forEach(key => {
     createMic(key, mics[key]);
 });
 
+let flashOn = false;
+
 function createMic (micName, micData){
     let polars = "";
     micData.polar.forEach(value => {
@@ -18,11 +20,17 @@ function createMic (micName, micData){
         char += `<li>${value}</li>`
     })
     let toPush = `
+    
     <div class="micObj">
+    <div class="flashContainer">
         <div class="micHead">
             <h4>${micName} <small>${micData.manufacturer} <button class="micImgOpen btn" onclick="showImage(this)">View Image</button></small></h4>
             <div class="micType">
                 <span>${micData.type}</span>
+            </div>
+            <div class="modalBack"></div>
+            <div class="micImgBox">
+                <img src="${micData.img}">
             </div>
         </div>
         <div class="micBody">
@@ -77,11 +85,9 @@ function createMic (micName, micData){
                 </ul>
             </div>
         </div>
-        <div class="modalBack"></div>
-        <div class="micImgBox">
-            <img src="${micData.img}">
         </div>
     </div>
+    
     `
     document.getElementById("gearList").innerHTML += toPush;
 }   
@@ -99,7 +105,7 @@ let showImage = (button) => {
     button.closest(".micObj").querySelector(".micImgBox").classList.add("active")
 }
 document.addEventListener('click',function(e){
-    console.log(e.target)
+
     if(e.target && e.target.classList.contains("modalBack")){
           e.target.classList.remove("active")
           e.target.parentElement.querySelector(".micImgBox").classList.remove("active")
@@ -225,4 +231,9 @@ let toggleFilters = () => {
     document.querySelector(".filters").classList.toggle("active")
 }
 
+let beginFlashcards = () => {
+    console.log('Beginning Flash Cards')
+    flashOn = true;
+    document.getElementById("gearList").classList.add("flashcards")
 
+}
