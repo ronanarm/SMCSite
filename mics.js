@@ -56,7 +56,8 @@ const mics = {
             "Dark",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/431daac993813feb8b4ffcb52a825771/f167ab35"
     },
     "R84": {
         "phantom": "NO",
@@ -83,7 +84,8 @@ const mics = {
             "Dark",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/d1f63968fef99b3c2f26a6726aacaa46/8454ffb3"
     },
     "C 451 B": {
         "phantom": "YES",
@@ -105,7 +107,8 @@ const mics = {
         "char": [
             "Bright",
             "Transparent",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/dc810b66e2e63fe194f31a07255ec1f9/2edeee87"
     },
     "C414 XLII": {
         "phantom": "YES",
@@ -131,7 +134,8 @@ const mics = {
         "char": [
             "Bright",
             "Transparent",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/8cc6b9090c4ce14ed08c2ac55d47b3ca/b5dee810"
     },
     "C414 XLS": {
         "phantom": "YES",
@@ -157,7 +161,8 @@ const mics = {
         "char": [
             "Bright",
             "Transparent",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/4b8ea8103c710d390309e18ab63dba15/17edbb80"
     },
     "D112 MKII": {
         "phantom": "NO",
@@ -176,7 +181,8 @@ const mics = {
         "char": [
             "Dark",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/fd217e5d1ec7d21446ea8f6d0788f8cb/03683d91"
     },
     "4006A": {
         "phantom": "YES",
@@ -200,7 +206,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/94fbc59c5769929e94765a27eac9034c/cd73c1cb"
     },
     "4011A": {
         "phantom": "YES",
@@ -225,7 +232,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/4e65f7a3c5ca70d6b68c5b47404ec31c/5aefdaab"
     },
     "4099 Extreme SPL": {
         "phantom": "YES",
@@ -246,7 +254,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/6610d1d0ad9e7ccb9f14662bb4a9a6b6/8bb08b30"
     },
     "4099 Loud SPL": {
         "phantom": "YES",
@@ -267,7 +276,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/439483123f70d59a69188cfb1eb63119/633a1b41"
     },
     "TC30K": {
         "phantom": "YES",
@@ -291,7 +301,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/290b3492ea5dfd07d27b228cf75882ac/9a2b3695"
     },
     "RE20": {
         "phantom": "NO",
@@ -314,7 +325,8 @@ const mics = {
         "char": [
             "Dark",
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/ac93787d65629174be751754f6bd2be0/b0771e44"
     },
     "MA-201 FET": {
         "phantom": "YES",
@@ -340,7 +352,8 @@ const mics = {
         "char": [
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/e0757ea4925c36ac6b2cb80087358c91/8c009856"
     },
     "KM130": {
         "phantom": "YES",
@@ -365,7 +378,8 @@ const mics = {
             "Saturated",
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/1adbe4b28334a265df9ebc6b1cbe792b/935887c9"
     },
     "KM143": {
         "phantom": "YES",
@@ -392,7 +406,8 @@ const mics = {
             "Saturated",
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/d2955d88b614d98febdcf9f379da0546/bf57f7e6"
     },
     "KM184": {
         "phantom": "YES",
@@ -419,7 +434,8 @@ const mics = {
             "Dark",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/3e7981fa250cb35cf464b2ced2173f8c/2bdcd9cb"
     },
     "M149 Tube": {
         "phantom": "NO",
@@ -440,7 +456,8 @@ const mics = {
             "Saturated",
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/ffce745f0da2ad5b7cf4e0fece9b4ec4/1364ecf9"
     },
     "TLM49": {
         "phantom": "YES",
@@ -461,7 +478,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/e39f82cd71ad8f79472d34ec8c5c47de/7455b4c6"
     },
     "U47 FET": {
         "phantom": "YES",
@@ -481,7 +499,8 @@ const mics = {
             "Bright",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/54d9f37e992d2fbbc4751ac11d49da56/90be851b"
     },
     "U87 Ai": {
         "phantom": "YES",
@@ -507,7 +526,8 @@ const mics = {
         "char": [
             "Bright",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/3d5006e01d4bc216f102ba5d77f7f22e/68b0b9cb"
     },
     "NT5": {
         "phantom": "YES",
@@ -531,7 +551,8 @@ const mics = {
         ],
         "char": [
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/777a60c00fba0db243e163f256286ea7/07eb868f"
     },
     "R10": {
         "phantom": "NO",
@@ -554,7 +575,8 @@ const mics = {
             "Dark",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/c2e0a8937bb72f4447aa46b7427523be/f2e74879"
     },
     "R121": {
         "phantom": "NO",
@@ -577,7 +599,8 @@ const mics = {
             "Saturated",
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/008c67dcca4717ff87d483c23bed79e2/a5bd60ce.png"
     },
     "CMC 6 MK4": {
         "phantom": "YES",
@@ -599,7 +622,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/8f9e734a122bda214cead2cfd8b83a84/b37af27d"
     },
     "e604": {
         "phantom": "NO",
@@ -617,7 +641,8 @@ const mics = {
         ],
         "char": [
             "Dark",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/7527029a0e7e38767f055017f037b169/39a5502e"
     },
     "e901": {
         "phantom": "YES",
@@ -634,7 +659,8 @@ const mics = {
         ],
         "char": [
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/10b82ca28590a98ebe5b9506fd5db38c/c02c3b02"
     },
     "MD 421 II": {
         "phantom": "NO",
@@ -660,7 +686,8 @@ const mics = {
         "char": [
             "Dark",
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/cf8565b45a9f2af8a5489f4b840746fe/29fba3de"
     },
     "Beta 52A": {
         "phantom": "NO",
@@ -679,7 +706,8 @@ const mics = {
         "char": [
             "Neutral",
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/2d38085b5b37c1047264fe9897a293c1/386932a4"
     },
     "Beta 56A": {
         "phantom": "NO",
@@ -697,7 +725,8 @@ const mics = {
             "Toms",
         ],
         "char": [
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/09384c05e21b2fdb9615b52280936817/b860e981"
     },
     "SM7B": {
         "phantom": "NO",
@@ -720,7 +749,8 @@ const mics = {
         ],
         "char": [
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/274760904c7ad359ad8257d6ad90142f/3532c398"
     },
     "SM57": {
         "phantom": "NO",
@@ -743,7 +773,8 @@ const mics = {
         "char": [
             "Dark",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/82398c73a7de866be6b863c775ef11ae/553f636d"
     },
     "SM58": {
         "phantom": "NO",
@@ -767,7 +798,8 @@ const mics = {
         "char": [
             "Dark",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/42c0872ff1d17afb24a161a2e0877aa8/981ddb5a"
     },
     "Super 55": {
         "phantom": "NO",
@@ -785,7 +817,8 @@ const mics = {
         "char": [
             "Dark",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/161d29a45465b3f5f0f800e26b9690bc/e10811ae"
     },
     "ELA M 260": {
         "phantom": "NO",
@@ -810,7 +843,8 @@ const mics = {
             "Saturated",
             "Neutral",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/f7d2b8c9f53f21ed9366a029d547fe2b/7ff2413d"
     },
     "M80 SH": {
         "phantom": "NO",
@@ -828,7 +862,8 @@ const mics = {
         "char": [
             "Neutral",
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/e0b44b86977ff409c3abe0e4c0a4b98c/02cc9d83"
     },
     "M81 SH": {
         "phantom": "NO",
@@ -846,7 +881,8 @@ const mics = {
         "char": [
             "Neutral",
             "Punchy",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/155ebbc57c42635b5f4eb88dfd745dae/f2c62c37"
     },
     "M82": {
         "phantom": "NO",
@@ -863,7 +899,8 @@ const mics = {
             "Kick",
         ],
         "char": [
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/fad2dfb1640b633cc1f1f8d69d9f58dd/9bcad163"
     },
     "WA-47": {
         "phantom": "NO",
@@ -889,7 +926,8 @@ const mics = {
             "Bright",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/aa8ed98cea907de41d8e804b2fcdabad/783c30df"
     },
     "WA-84": {
         "phantom": "YES",
@@ -916,8 +954,10 @@ const mics = {
             "Dark",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/ba5def0876b307fe98f60bb8d315f463/cc02037f"
     },
+    
     "WA-87": {
         "phantom": "YES",
         "manufacturer": "Warm Audio",
@@ -943,7 +983,8 @@ const mics = {
         "char": [
             "Transparent",
             "Neutral",
-        ]
+        ],
+        "img": "https://dl.airtable.com/.attachmentThumbnails/33a260bc7a0a2b03dbeff5640e7b3d9b/17f50f32"
     },
     "KSM44": {
         "phantom": "YES",
@@ -973,7 +1014,8 @@ const mics = {
             "Transparent",
             "Punchy",
             "Smooth",
-        ]
+        ],
+        "img": "https://media.sweetwater.com/api/i/f-webp__q-85__ha-11d53229e0052f80__hmac-aa208d84e82fafe98d2760703a5267ce977a7279/images/items/1800/KSM44A-xlarge.jpg.auto.webp"
     },
     "Origin": {
         "phantom": "YES",
@@ -1001,7 +1043,8 @@ const mics = {
             "Bright",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://media.musiciansfriend.com/is/image/MMGS7/Origin-Cardioid-Condenser-Microphone/J32367000000000-00-500x500.jpg"
     },
     "BV12": {
         "phantom": "NO",
@@ -1027,6 +1070,7 @@ const mics = {
             "Bright",
             "Saturated",
             "Smooth",
-        ]
+        ],
+        "img": "https://static.keymusic.com/products/261044/340/avantone-bv-12.jpg"
     },
 }

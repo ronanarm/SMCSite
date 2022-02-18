@@ -20,7 +20,7 @@ function createMic (micName, micData){
     let toPush = `
     <div class="micObj">
         <div class="micHead">
-            <h4>${micName} <small>${micData.manufacturer}</small></h4>
+            <h4>${micName} <small>${micData.manufacturer} <button class="micImgOpen btn" onclick="showImage(this)">View Image</button></small></h4>
             <div class="micType">
                 <span>${micData.type}</span>
             </div>
@@ -77,6 +77,10 @@ function createMic (micName, micData){
                 </ul>
             </div>
         </div>
+        <div class="modalBack"></div>
+        <div class="micImgBox">
+            <img src="${micData.img}">
+        </div>
     </div>
     `
     document.getElementById("gearList").innerHTML += toPush;
@@ -89,6 +93,18 @@ let showMic = (mic) => {
         mic.classList.add("active")
     }
 }
+
+let showImage = (button) => {
+    button.closest(".micObj").querySelector(".modalBack").classList.add("active")
+    button.closest(".micObj").querySelector(".micImgBox").classList.add("active")
+}
+document.addEventListener('click',function(e){
+    console.log(e.target)
+    if(e.target && e.target.classList.contains("modalBack")){
+          e.target.classList.remove("active")
+          e.target.parentElement.querySelector(".micImgBox").classList.remove("active")
+     }
+ });
 
 let meetsConditions = (mic) => {
     if(mic.classList.contains("active")){
