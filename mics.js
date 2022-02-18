@@ -325,7 +325,7 @@ const mics = {
         "SPL": 125,
         "hasPad": false,
         "type": "LDC",
-        "lendingLevel": 4,
+        "lendingLevel": 2,
         "uses": [
             "Acoustic Guitar",
             "Electric Guitar",
