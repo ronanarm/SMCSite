@@ -247,7 +247,7 @@ let beginFlashcards = () => {
     flashOn = true;
     document.getElementById("gearList").classList.add("flashcards")
     document.getElementById("body").classList.add("bodyFlash")
-
+    
 }
 let closeFlashcards = () => {
     console.log('Ending Flash Cards')

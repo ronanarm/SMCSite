@@ -413,7 +413,8 @@ fieldset legend {
     padding:0;
     margin:0;
 }
-.flashcards::before {
+
+.flashBack{
     background-color: var(--flashcardBack);
     content: "";
     width: 100vw;
@@ -421,7 +422,11 @@ fieldset legend {
     top: 0;
     left: 0;
     position: fixed;
-    z-index: -1;
+    z-index: 100;
+    display:none;
+}
+.bodyFlash .flashBack{
+    display:block;
 }
 .flashcards {
     z-index: 1001;
