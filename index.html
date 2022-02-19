@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>SMC Gear Information Page</title>
 </head>
-<body>
+<body class="" id="body">
     <div class="panelControls">
 
     </div>
@@ -97,13 +97,18 @@
                 <button class="btn btnLarge" onclick="beginFlashcards()">
                     Start Flashcards
                 </button>
-                &nbsp;
+                &nbsp;<br>&nbsp;
             </div>
         </div>
         <div class="gearList" id="gearList">
+            <div class="showOnFlashcard defaultHide flashcardInstructions">
+                <button onclick="previousFlashcard()"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 30L8 16L20 2"/></svg> PREVIOUS</button>
+                <p>Click to show other side. <button class="inlineButton"onclick='closeFlashcards()'>CLOSE FLASHCARDS</button></p>
+                <button onclick="nextFlashcard()">NEXT <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 30l12-14L12 2"/></svg></button>
             
+            </div>
         </div>
-        <div class="maintenanceTag"><h2>We are currently undergoing maintenance, please check back soon!</h2></div>
+        <!-- <div class="maintenanceTag"><h2>We are currently undergoing maintenance, please check back soon!</h2></div> -->
     </div>
         <script src="mics.js"></script>
         <script src="scripts.js"></script>

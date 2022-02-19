@@ -32,6 +32,11 @@ function createMic (micName, micData){
             <div class="micImgBox">
                 <img src="${micData.img}">
             </div>
+            
+        </div>
+        <div class="flashMicDetails">
+            <h4>${micName} <small style="display:inline-block;">${micData.manufacturer}</small></h4>
+            <div>${micData.type}</div>
         </div>
         <div class="micBody">
             <div class="specTable">
@@ -105,11 +110,17 @@ let showImage = (button) => {
     button.closest(".micObj").querySelector(".micImgBox").classList.add("active")
 }
 document.addEventListener('click',function(e){
-
     if(e.target && e.target.classList.contains("modalBack")){
           e.target.classList.remove("active")
           e.target.parentElement.querySelector(".micImgBox").classList.remove("active")
      }
+     if(flashOn){
+        let targetParent = e.target.closest(".micObj")
+        if(e.target && targetParent){
+            targetParent.classList.toggle("flashcardActive");
+        }
+     }
+     
  });
 
 let meetsConditions = (mic) => {
@@ -235,5 +246,22 @@ let beginFlashcards = () => {
     console.log('Beginning Flash Cards')
     flashOn = true;
     document.getElementById("gearList").classList.add("flashcards")
+    document.getElementById("body").classList.add("bodyFlash")
 
 }
+let closeFlashcards = () => {
+    console.log('Ending Flash Cards')
+    flashOn = false;
+    document.getElementById("gearList").classList.remove("flashcards")
+    document.getElementById("body").classList.remove("bodyFlash")
+}
+let nextFlashcard = () => {
+    let widthToScroll = document.getElementById("gearList").querySelector(".micObj").offsetWidth;
+    console.log(widthToScroll)
+    document.getElementById('gearList').scrollLeft += widthToScroll;
+  };
+  let previousFlashcard = () => {
+    let widthToScroll = document.getElementById("gearList").querySelector(".micObj").offsetWidth;
+    console.log(widthToScroll)
+    document.getElementById('gearList').scrollLeft -= widthToScroll;
+  };
