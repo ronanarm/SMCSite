@@ -445,6 +445,7 @@ fieldset legend {
     scroll-snap-align: center;
     position: relative;
     padding: 1rem;
+
     border-radius: 5px;
     border: 0px solid var(--boxBorder);
     min-width: 70%;
@@ -455,7 +456,10 @@ fieldset legend {
     color: var(--flashcardText);
     align-items:center;
     justify-content:center;
+    max-height:80vh;
+    overflow-y:hidden;
 }
+
 .flashcards .micObj.active{
     display:flex;
 }
@@ -521,6 +525,14 @@ fieldset legend {
     left:50%;
     transform:translate(-50%, 0);
 }
+@media(max-width:700px){
+    .flashcardInstructions span{
+        display:none !important;
+    }
+}
+    
+
+
 .inlineButton{
     padding:0;
     margin:0;
@@ -570,4 +582,38 @@ fieldset legend {
     align-items:center;
     justify-content:center;
     text-align:center;
+}
+@media(max-width:700px){
+    .flashcards .micObj {
+        cursor:pointer;
+        margin-left: 3%;
+        margin-right: 3%;
+        scroll-snap-align: center;
+        position: relative;
+        padding: 0.7rem;
+        min-height:calc(80vh - 0rem);
+        max-height:calc(80vh - 0rem);
+    
+    }
+    .flashcards .flashContainer{
+        max-height:100%;
+        position:relative;
+        overflow-y:auto;
+    }
+    .flashcards .micObj.active{
+        /* display:block; */
+    }
+    .flashcards .flashcardInstructions{
+        bottom:0rem;
+    }
+    .flashcards .micObj .micHead{
+        text-align:center;
+        display:block;
+    }
+    .flashcards .micObj .micHead .micImgBox{
+        margin:0;
+        padding:1rem 0;
+    }
+
+
 }

@@ -256,12 +256,13 @@ let closeFlashcards = () => {
     document.getElementById("body").classList.remove("bodyFlash")
 }
 let nextFlashcard = () => {
-    let widthToScroll = document.getElementById("gearList").querySelector(".micObj").offsetWidth;
+    let widthToScroll = document.getElementById("gearList").querySelector(".active").offsetWidth;
     console.log(widthToScroll)
     document.getElementById('gearList').scrollLeft += widthToScroll;
   };
   let previousFlashcard = () => {
-    let widthToScroll = document.getElementById("gearList").querySelector(".micObj").offsetWidth;
+    let widthToScroll = document.getElementById("gearList").querySelector(".active").offsetWidth;
+    
     console.log(widthToScroll)
     document.getElementById('gearList').scrollLeft -= widthToScroll;
   };
