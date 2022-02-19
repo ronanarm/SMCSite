@@ -252,6 +252,7 @@ fieldset legend {
         top: 0;
         padding: 1rem;
         padding-bottom: 5rem;
+        z-index:1000;
     }
     .filters fieldset:last-child {
         margin-bottom: 14rem;
@@ -272,6 +273,7 @@ fieldset legend {
         left: 0;
         padding-bottom: 0;
         border-bottom: 3px solid var(--boxBorder);
+        z-index:100;
     }
     .sideBar .flexAlign {
         border: none;
@@ -358,7 +360,10 @@ fieldset legend {
     position: relative;
     overflow: hidden;
     transition: box-shadow 0.4s;
-    z-index: 100;
+    z-index: 5;
+}
+.padMenu{
+    min-height:150px;
 }
 .btn.btnLarge {
     font-size: 1rem;
