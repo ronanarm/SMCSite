@@ -521,7 +521,7 @@ fieldset legend {
     text-align:center;
     left:0;
 }
-.flashcards .flashcardInstructions{
+.flashBack .flashcardInstructions{
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -608,7 +608,7 @@ fieldset legend {
     .flashcards .micObj.active{
         /* display:block; */
     }
-    .flashcards .flashcardInstructions{
+    .flashBack .flashcardInstructions{
         bottom:0rem;
     }
     .flashcards .micObj .micHead{
