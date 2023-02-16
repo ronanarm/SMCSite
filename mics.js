@@ -8,6 +8,7 @@ const mics = {
     //     "hasPad": true,
     //     "type": "LDC",
     //     "lendingLevel": 4,
+    //      "phantom": "YES",
     //     "uses": [
     //         "Acoustic Guitar",
     //         "Electric Guitar",
@@ -32,7 +33,8 @@ const mics = {
     //         "Neutral",
     //         "Punchy",
     //         "Smooth",
-    //     ]
+    //     ],
+    //     "img": "",
     // },
     "ETHOS": {
         "manufacturer": "Earthworks",
@@ -43,6 +45,7 @@ const mics = {
         "hasPad": false,
         "type": "LDC",
         "lendingLevel": 1,
+        "phantom": "YES",
         "uses": [
             "Vocals",
         ],
@@ -53,6 +56,80 @@ const mics = {
         ],
         "img": "https://v5.airtableusercontent.com/v1/15/15/1676577600000/WWPjm7WnA8jrXAsvVqPqzQ/xEGmEZrxtuYoE2QFtVyhw17PoZiu2oywpP_nR7zi_vYemjGwWPITELwAaILn5FS3ofcBIokzN-lnyva6H56sVA/xpB0pl2aeEXM4mP1H3Ls5dTDKYC5rdPup_PkPnCcg4k"
     },
+     "QTC40": {
+        "manufacturer": "Earthworks",
+        "polar": ["Omni"],
+        "highestFreq": 40,
+        "lowestFreq": 3,
+        "SPL": 140,
+        "hasPad": false,
+        "phantom":"YES",
+        "type": "SDC",
+        "lendingLevel": 4,
+        "uses": [
+            "Acoustic Guitar",
+            "Acoustic Piano",
+            "Violin/Viola/Cello",
+            "Trumpet/Sax/Horns",
+            "Drum Overheads",
+            "Drum Room",
+            "General Purpose"
+        ],
+        "char": [
+            "Transparent",
+            "Neutral",
+        ],
+        "img": "https://v5.airtableusercontent.com/v1/15/15/1676577600000/lpFgYvAsw6szKDWw30F0Yg/Gv1XYZrVusH0JiT3vdjXcJaWkx70zQ0nyodLqGfa6_Xgl9g88cS_hQHIRXSF5TDxQ8uu3JyTGg4TSsnZlmkuIw/ERNkmiYoD9uR-0hRag_aheqNz3KIw-DBuwOdeUIqkuo",
+    },
+     "SR25": {
+        "manufacturer": "Earthworks",
+        "polar": ["Cardioid"],
+        "highestFreq": 25,
+        "lowestFreq": 20,
+        "SPL": 145,
+        "phantom":"YES",
+        "hasPad": false,
+        "type": "SDC",
+        "lendingLevel": 4,
+        "uses": [
+            "Electric Bass",
+            "Kick",
+        ],
+        "char": [
+            "Transparent",
+            "Neutral",
+            "Punchy",
+        ],
+        "img": "https://v5.airtableusercontent.com/v1/15/15/1676577600000/cHqrBYJ4lQXu8myfHJYzwA/vrgQbeBh8yHRiTt0sR-GOKAExuWHeMzVu9cYlBKJVpWqi0sCjpPiYgIv3Ipv_W8MGb0ZkS-4JSfprf40lba2NA/60pwghPqCj9m8kXZWTIlihgXbU4TYcFC3HtwLIHqv8A",
+    },
+    "LCT 441 FLEX": {
+        "manufacturer": "Lewitt",
+        "polar": ["Cardioid", "Figure-8", "Omni"],
+        "highestFreq": 20,
+        "lowestFreq": 20,
+        "SPL": 144,
+        "hasPad": false,
+        "type": "LDC",
+        "lendingLevel": "Unknown",
+         "phantom": "YES",
+        "uses": [
+            "Acoustic Guitar",
+            "Electric Guitar",
+            "Vocals",
+            "Acoustic Piano",
+            "Violin/Viola/Cello",
+            "Trumpet/Sax/Horns",
+            "Drum Overheads",
+            "Drum Room",
+            "General Purpose"
+        ],
+        "char": [
+            "Bright",
+            "Punchy",
+        ],
+        "img": "https://v5.airtableusercontent.com/v1/15/15/1676577600000/2pBZa-7UIdL4zi0us7ulkA/vuVhunGjA6jE1YfCi0aypPYgKNkh2a4Hi9rTSptgIH5QUbgxdBADo-SUpCKA-HUWrXGpoqtNYuG3p-aJdtpk3Q/7W8TgEHjFmHGnUf4Dvj5XF0vjph6LdzXh-1oCa3_J_I",
+    },
+    
     "R44CE": {
         "manufacturer": "AEA",
         "polar": ["Figure-8"],
@@ -1092,4 +1169,5 @@ const mics = {
         ],
         "img": "https://static.keymusic.com/products/261044/340/avantone-bv-12.jpg"
     },
+    
 }
