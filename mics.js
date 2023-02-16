@@ -34,6 +34,25 @@ const mics = {
     //         "Smooth",
     //     ]
     // },
+    "ETHOS": {
+        "manufacturer": "Earthworks",
+        "polar": ["Cardioid"],
+        "highestFreq": 20,
+        "lowestFreq": 30,
+        "SPL": 145,
+        "hasPad": false,
+        "type": "LDC",
+        "lendingLevel": 1,
+        "uses": [
+            "Vocals",
+        ],
+        "char": [
+            "Bright",
+            "Transparent",
+            "Neutral",
+        ],
+        "img": "https://v5.airtableusercontent.com/v1/15/15/1676577600000/WWPjm7WnA8jrXAsvVqPqzQ/xEGmEZrxtuYoE2QFtVyhw17PoZiu2oywpP_nR7zi_vYemjGwWPITELwAaILn5FS3ofcBIokzN-lnyva6H56sVA/xpB0pl2aeEXM4mP1H3Ls5dTDKYC5rdPup_PkPnCcg4k"
+    },
     "R44CE": {
         "manufacturer": "AEA",
         "polar": ["Figure-8"],
