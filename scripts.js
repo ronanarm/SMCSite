@@ -9,7 +9,7 @@ let flashOn = false;
 function createMic (micName, micData){
     let polars = "";
     micData.polar.forEach(value => {
-            polars += `<li>${value}</li>`
+            polars += `<li class="${value}Polar polar"><span class="toolTip">${value}</span></li>`
     })
     let usedOn = "";
     micData.uses.forEach(value => {
@@ -21,17 +21,17 @@ function createMic (micName, micData){
     })
     let toPush = `
     
-    <div class="micObj">
+    <div class="micObj showOnScroll">
     <div class="flashContainer">
         <div class="micHead">
-            <h4>${micName} <small>${micData.manufacturer} <button class="micImgOpen btn" onclick="showImage(this)">View Image</button></small></h4>
+            <h4>${micName} <small>${micData.manufacturer} </small></h4>
             <div class="micType">
                 <span>${micData.type}</span>
             </div>
             <div class="modalBack"></div>
-            <div class="micImgBox">
+            <!--<div class="micImgBox">
                 <img src="${micData.img}">
-            </div>
+            </div>-->
             
         </div>
         <div class="flashMicDetails">
@@ -41,8 +41,8 @@ function createMic (micName, micData){
         <div class="micBody">
             <div class="specTable">
                 <div>
-                    <b>Has a Pad</b>
-                    <span class="caps">${micData.hasPad}</span>
+                    <b>Integrated Pad</b>
+                    <span class="caps ${micData.hasPad}Pad">${micData.hasPad}</span>
                 </div>
                 <div>
                     <b>Polar Patterns</b>
@@ -182,6 +182,7 @@ let meetsConditions = (mic) => {
 let update = () => {
     console.log("Updating Filters")
     let arrayOfMics = Array.from(document.getElementsByClassName("micObj"));
+
     if(Object.keys(filters).length == 0){
         arrayOfMics.forEach((mic) => {
             showMic(mic)
@@ -266,3 +267,28 @@ let nextFlashcard = () => {
     console.log(widthToScroll)
     document.getElementById('gearList').scrollLeft -= widthToScroll;
   };
+
+
+const entriesToObserve = document.querySelectorAll(".showOnScroll")
+
+
+const callback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("fadeInScroll")
+    }else{
+        // entry.target.classList.remove("fadeInScroll")
+    }
+  })
+}
+
+const options = {}
+const itemObserver = new IntersectionObserver(callback, options)
+
+entriesToObserve.forEach(entry => {
+    
+    itemObserver.observe(entry)
+})
+
+
+//myObserver.observe(img)
