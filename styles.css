@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Nunito:wght@300;400&display=swap');
 
 :root {
-    --backColor: #030716;
-    --borderColor: #030716;
-    --hoverColor: #f3f3f3;
-    --backBoxes: #232632;
-    --boxBorder: #050A1F;
-    --buttonBack: #EAD071;
-    --buttonHover: #EAD071;
-    --flashcardBack: #f3f3f3;
-    --flashcardMain: #fff;
-    --flashcardText: #000;
-    --flashcardAccentText: #3b4051;
-
     /*Measurements*/
     --maxWidth: 1100px;
     /*FONTS*/
@@ -48,6 +36,22 @@
 
     --borderRadius: 0.3rem;
 }
+
+.mainContrastFill{
+    fill:var(--backgroundContrast);
+}
+.fourthColorFill{
+    fill:var(--fourthColor);
+}
+.secondaryColorFill{
+    fill:var(--secondaryColorHover);
+}
+.thirdColorFill{
+    fill:var(--thirdColor);
+}
+.mainLighterFill{
+    fill:var(--secondaryContrastHover);
+}
 .defaultHide{
     display:none;
 }
@@ -64,28 +68,29 @@ h1, h2, h3, h4, h5, h6{
 .mainContentBox{
     width:100%;
     display:block;
+    max-width:var(--maxWidth);
+    margin:0 auto;
 }
 .quickActions{
     min-height:200px;
 }
 .header{
     max-width:var(--maxWidth);
-    margin:0 auto;
+    margin: 0 1rem;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin-bottom:2rem;
+    margin-bottom:1.2rem;
 }
 .header h1{
     color:var(--backgroundContrast);
+    display:flex;
+    align-items:center;
 }
-.header h1:after{
-    color:var(--secondaryColor);
-    content:" /";
-    font-size:2.4rem;
-    margin-left:1rem;
-    display:inline-block;
-    top:-0.2rem;
+.header svg{
+    margin-right:1rem;
+    height:2.4rem;
+
 }
 .header ul{
     list-style-type:none;
@@ -511,12 +516,13 @@ width:1.5rem;
     top:1vh;
     margin-bottom: 1.5rem;
     background-color: var(--backgroundColorLighter);
-    color: var(--flashcardText);
+    color: var(--backgroundContrast);
     align-items:center;
     justify-content:center;
     max-height:80vh;
     overflow-y:hidden;
 }
+
 
 .flashcards .micObj.active{
     display:flex;
@@ -642,7 +648,17 @@ width:1.5rem;
 
 /* ---- UI ANIMATIONS ---- */
 
-.groupedLabels{display:flex;}
+.groupedLabels {
+    display: flex;
+}
+.groupedLabels .labelGroup:first-child{
+    flex-basis:50%;
+    padding-right:1rem;
+}
+.groupedLabels .labelGroup{
+    white-space:nowrap;
+}
+
 .quizControls{
     display:flex;
 }
@@ -1056,6 +1072,9 @@ width:1.5rem;
 }
 
 @media (max-width: 1160px) {
+    .filters > .mainBtn:last-child{
+        margin-bottom:8rem;
+    }
     .flashcards .flashContainer{
         max-height:100%;
         width:calc(100% - 2rem);
@@ -1063,9 +1082,12 @@ width:1.5rem;
         width: 1;
         overflow-y:auto;
     }
+    .flashcards .flashContainer h4{
+        text-align:center;
+    }
     .micHead h4{
         width:100%;
-        text-align:center;
+        
     }
     .alignBtns {
         width: 100%;
@@ -1093,7 +1115,7 @@ width:1.5rem;
         left: 0;
         top: 0;
         padding: 1rem;
-        padding-bottom: 5rem;
+        margin-bottom: 5rem;
         z-index:1000;
     }
     .filters fieldset:last-child {
@@ -1109,9 +1131,8 @@ width:1.5rem;
         background-color: var(--backgroundColorLighter);
         top: 0;
         display: block;
-
-        width: calc(100% - 2rem);
-        margin: 1rem 0;
+        width: calc(100% - 3rem);
+        margin: 1rem 0.6rem;
         left: 0;
         padding-bottom: 0;
         border-bottom: 3px solid var(--backgroundColorLighter);
@@ -1126,6 +1147,16 @@ width:1.5rem;
     }
 }
 @media (max-width: 825px) {
+    .quizControls{
+        flex-direction:column;
+    }
+    .groupedLabels .labelGroup{
+        flex-basis:50%;
+    }
+    .groupedLabels{
+        justify-content: space-between;
+        align-items: center;
+    }
     .flashcardInstructions span{
         display:none !important;
     }
