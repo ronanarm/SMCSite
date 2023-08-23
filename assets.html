@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SMC Tools - Assets</title>
+</head>
+<body>
+    <div class="mainContentBox">
+        <div class="header">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><rect width="184.87" height="35.36" x="23.19" y="162" fill="#7148fc" rx="17.68" ry="17.68"></rect><rect width="50.15" height="35.36" x="224.97" y="162" fill="#0c121c" rx="17.68" ry="17.68"></rect><rect width="125.97" height="35.36" x="23.19" y="102.64" fill="#1e293b" rx="17.68" ry="17.68"></rect><rect width="87.87" height="35.36" x="23.19" y="221.36" fill="#0c121c" rx="17.68" ry="17.68"></rect><rect width="147.15" height="35.36" x="127.98" y="221.36" fill="#d6dee7" rx="17.68" ry="17.68"></rect><rect width="109.06" height="35.36" x="166.07" y="102.64" fill="#b8bfc6" rx="17.68" ry="17.68"></rect><rect width="81.74" height="35.36" x="23.19" y="43.27" fill="#0c121c" rx="17.68" ry="17.68"></rect><rect width="153.83" height="35.36" x="122.98" y="43.27" fill="#d6dee7" rx="17.68" ry="17.68"></rect></svg>
+                <span>SMC TOOLS</span>
+            </h1>
+            <ul>
+                <li><a href="index.html" class="menuLink">Microphones</a></li>
+                <li><a href="eartraining.html" class="menuLink">Ear Training</a></li>
+                <li><a href="assets.html" class="menuLink">Assets</a></li>
+            </ul>
+        </div>
+      
+    </div>
+    <div class="bodyContent">
+        <div class="triBox">
+            <a href="#" class="triBoxSingle">
+                <div>
+                    <h2>SESSIONS</h2>
+                    <p>Explore a selection of curated Pro Tools and Logic sessions, including shootouts, templates, and more.</p>
+                </div>
+                <span class="goArrow">
+                    GO
+                    <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M12 30 L24 16 12 2" />
+                    </svg>
+                </span>
+            </a>
+            <a href="#" class="triBoxSingle">
+                <div>
+                    <h2>WEB RESOURCES</h2>
+                    <p>Discover a variety of web-based resources and tools to help you in your musical and professional career.</p>
+                </div>
+                <span class="goArrow">
+                    GO
+                    <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M12 30 L24 16 12 2" />
+                    </svg>
+                </span>
+            </a>
+            <a href="#" class="triBoxSingle">
+                <div>
+                    <h2>PLUGINS</h2>
+                    <p>Dive into a variety of recommended audio editing and music production plugins and instruments.</p>
+                </div>
+                <span class="goArrow">
+                    GO
+                    <svg id="i-chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M12 30 L24 16 12 2" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+       
+    </div>
+    <div class="assetFilters">
+        <h2>Filter by</h2>
+        <div class="assetControls">
+            <fieldset class="styledFieldset">
+                <legend>Resource Type</legend>
+                <label><input class="assetCheck" type="checkbox" value="Session" onclick="updateFilters('type', 'Session')" /><span class="checkboxFill"></span> Session</label>
+                <label><input class="assetCheck" type="checkbox" value="Web Resource" onclick="updateFilters()" /><span class="checkboxFill"></span> Web Resource</label>
+                <label><input class="assetCheck" type="checkbox" value="Software"  onclick="updateFilters()" /><span class="checkboxFill"></span> Software</label>
+            </fieldset>
+            
+        </div>
+        
+    </div>
+    <div class="assetContainer">
+        <!-- <a class="assetBox" href="assetURL.html">
+            <h3>Asset Title</h3>
+            <span>Asset Category</span>
+            <p>A free online Photoshop alternative with an almost identical interface.</p>
+        </a> -->
+    </div>
+    <script src="assets.js"></script>
+    <script src="assetScripts.js"></script>
+</body>
+</html>

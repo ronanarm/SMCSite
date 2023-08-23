@@ -1056,6 +1056,10 @@ width:1.5rem;
     background-color:var(--backgroundColor);
     color:var(--backgroundContrast);
   }
+  .assetControls .styledFieldset legend{
+    background-color:var(--backgroundColor);
+    color:var(--backgroundContrast);
+  }
   .earTrainingControls .styledFieldset input[type="radio"] + .checkboxFill{
     border-color:var(--fourthColor);
     background-color:var(--fourthColor);
@@ -1069,6 +1073,130 @@ width:1.5rem;
 .renderingQuestion{
     opacity:0;
     transform:translateY(50px);
+}
+
+
+
+/*TRI BOXES */
+
+.triBox{
+    display:flex;
+    width:100%;
+    outline:0px solid red;
+    min-height: 330px;
+    align-items:stretch;
+    justify-content:space-between;
+}
+.triBoxSingle{
+    flex-basis:33%;
+    background-color:var(--secondaryColor);
+    border-radius:var(--borderRadius);
+    margin:1rem;
+    padding:2rem;
+    box-shadow:0px 4px 5px -4px var(--backgroundColorDarker);
+    text-decoration:none;
+    transition:all 0.1s;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+.triBoxSingle:hover .goArrow svg{
+    padding:0 0 0 1rem;
+}
+.triBoxSingle:nth-child(2){
+    background-color:var(--secondaryColor);
+    color:var(--secondaryColorContrast);
+}
+.triBoxSingle:nth-child(2):hover{
+    background-color:var(--secondaryColorHover);
+    color:var(--secondaryColorContrast);
+}
+.triBoxSingle:nth-child(1){
+    background-color:var(--thirdColor);
+    color:var(--thirdColorContrast);
+}
+.triBoxSingle:nth-child(1):hover{
+    background-color:var(--thirdColorHover);
+    color:var(--thirdColorContrast);
+}
+.triBoxSingle:nth-child(3){
+    background-color:var(--fourthColor);
+    color:var(--fourthColorContrast);
+}
+.triBoxSingle:nth-child(3):hover{
+    background-color:var(--fourthColor);
+    color:var(--fourthColorContrast);
+}
+.goArrow{
+    text-align:right;
+    display:flex;
+    align-items:center;
+    justify-content:right;
+    width:100%;
+    
+}
+.goArrow svg{
+    height:1rem;
+    margin-top:-0.1rem;
+    display:inline-block;
+    padding:0 0 0 0.5rem;
+    width:1rem;
+    transition:all 0.1s;
+}
+
+
+/*Asset Containers*/
+.assetFilters{
+    width:100%;
+    display:block;
+    max-width:var(--maxWidth);
+    margin:0 auto;
+    color:var(--backgroundContrast);
+}
+.assetFilters h2{
+    padding:0 1rem;
+}
+.assetControls{
+    padding:1rem;
+    display:flex;
+}
+.assetFilters h3{
+    padding:1rem;
+}
+
+.assetContainer{
+    display:flex;
+    width:100%;
+    max-width:var(--maxWidth);
+    margin:0 auto;
+    /* outline:1px solid red; */
+    flex-wrap:wrap;
+}
+.assetBox{
+    display:none;
+    background-color:var(--backgroundColorLighter);
+    flex-basis:calc(25% - 4rem);
+    padding:1rem;
+    margin:1rem;
+    border-radius:var(--borderRadius);
+    box-shadow:0px 4px 5px -4px var(--backgroundColorDarker);
+    color:var(--backgroundContrast);
+    text-decoration:none;
+}
+.assetBox.active{
+    display:block;
+}
+.assetBox span{
+    color:var(--secondaryColor);
+    margin:0;
+}
+.assetBox h3{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.assetBox h3 svg{
+    height:1.3em;
 }
 
 @media (max-width: 1160px) {
