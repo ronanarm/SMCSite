@@ -1372,3 +1372,8 @@ width:1.5rem;
 
 
 }
+.checkInBox{
+    text-align:center;
+    color:var(--backgroundContrast);
+    width:100%;
+}

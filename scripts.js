@@ -7,6 +7,12 @@ Object.keys(mics).forEach(key => {
 let flashOn = false;
 
 function createMic (micName, micData){
+    let hasPadYesNo;
+    if(micData.hasPad){
+        hasPadYesNo = "YES"
+    }else{
+        hasPadYesNo = "NO"
+    }
     let polars = "";
     micData.polar.forEach(value => {
             polars += `<li class="${value}Polar polar"><span class="toolTip">${value}</span></li>`
@@ -42,7 +48,7 @@ function createMic (micName, micData){
             <div class="specTable">
                 <div>
                     <b>Integrated Pad</b>
-                    <span class="caps ${micData.hasPad}Pad">${micData.hasPad}</span>
+                    <span class="caps ${micData.hasPad}Pad">${hasPadYesNo}</span>
                 </div>
                 <div>
                     <b>Polar Patterns</b>
