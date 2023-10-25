@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SMC Tools - Random Signal Chain</title>
+</head>
+<body class="" id="body">
+    <!--HEADER-->
+    <div class="mainContentBox">
+        <div class="header">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                    <rect width="184.87" height="35.36" x="23.19" y="162" rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="50.15" height="35.36" x="224.97" y="162" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="125.97" height="35.36" x="23.19" y="102.64" rx="17.68" ry="17.68" class="mainLighterFill"></rect>
+                    <rect width="87.87" height="35.36" x="23.19" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="147.15" height="35.36" x="127.98" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="109.06" height="35.36" x="166.07" y="102.64"  rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="81.74" height="35.36" x="23.19" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="153.83" height="35.36" x="122.98" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                </svg><span>SMC TOOLS</span>
+            </h1>
+            <button onclick="document.querySelector('.mobileMenu').classList.toggle('display')" class="toggleMenu mainBtn">MENU</button>
+            <ul class="mobileMenu">
+                <li><a href="index.html" class="menuLink">Microphones</a></li>
+                <li><a href="eartraining.html" class="menuLink">Ear Training</a></li>
+                <li><a href="assets.html" class="menuLink">Assets</a></li>
+                <li><a href="randomchain.html" class="menuLink">Patchbay Practice</a></li>
+            </ul>
+        </div>
+      
+    </div>
+    <div class="">
+        <div class="assetFilters">
+            <h2>Controls</h2> 
+            <div class="assetControls">
+                 <fieldset class="styledFieldset">
+                    <legend>Input Devices</legend>
+                    <label><input type="checkbox" value="Mic" checked/><span class="checkboxFill"></span> Microphone</label>
+                    <label><input type="checkbox" value="Input" checked/><span class="checkboxFill"></span> Input Number</label>
+                     </fieldset>
+                <fieldset class="styledFieldset">
+                    <legend>Processing</legend>
+                    <label><input type="checkbox" value="Pre"  checked/><span class="checkboxFill"></span> Preamp</label>
+                    <label><input type="checkbox" value="EQ" checked/><span class="checkboxFill"></span> EQ</label>
+                    <label><input type="checkbox" value="Comp" checked/><span class="checkboxFill"></span> Compressor</label>
+                   
+                </fieldset>
+                <fieldset class="styledFieldset">
+                    <legend>DAW</legend>
+                    <label><input type="checkbox" value="DAWIn" checked/><span class="checkboxFill"></span> DAW Input</label>
+               
+                </fieldset>
+                
+            </div>
+            <button class="mainBtn styledInFieldset" onclick="generateRandom()">
+                Generate
+            </button>
+        </div>
+        <div class="randomAnswers flexReverse" id="gearList">
+            
+        </div>
+         </div>
+         <script src="gearLibrary.js"></script>
+         <script src="mics.js"></script>
+         <script src="gearRandomizer.js"></script>
+</body>
+</html>
