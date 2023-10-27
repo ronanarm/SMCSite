@@ -54,7 +54,13 @@
                     <label><input type="checkbox" value="DAWIn" checked/><span class="checkboxFill"></span> DAW Input</label>
                
                 </fieldset>
-                
+                <fieldset class="styledFieldset">
+                    <legend>EQ/Compressor Order</legend>
+                    <label><input type="radio" value="EQFirst"  name="order" checked/><span class="checkboxFill"></span> EQ First</label>
+                    <label><input type="radio" value="CompFirst"name="order" /><span class="checkboxFill"></span> Compressor First</label>
+                    <label><input type="radio" value="Random"name="order" /><span class="checkboxFill"></span> Random</label>
+                   
+                </fieldset>
             </div>
             <button class="mainBtn styledInFieldset" onclick="generateRandom()">
                 Generate
