@@ -53,7 +53,9 @@ const checkIn = () => {
         let distancetoRC = distance(pos.coords.longitude, pos.coords.latitude, -85.21229404568588, 41.12256011135039 )
         console.log(
             distancetoRC
+            
         ); 
+        button.innerHTML = `Distance is ${distancetoRC}`;
 
         if(distancetoRC < 0.15){
           let attendanceLogBanner = document.querySelector(".attendanceBlurb");
