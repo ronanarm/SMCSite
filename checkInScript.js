@@ -75,13 +75,9 @@ const checkIn = () => {
               date.setDate(date.getDate() + 1);
               let gtmsDate = date.toGMTString();
               document.cookie = `hasMarked=true; expires=${gtmsDate}`;
-                  
-                records.forEach((record) => {
-
-                  attendanceLogBanner.innerHTML = `We successfully marked you as present.`
-            attendanceLogBanner.classList.add("right")
-              
-                });
+              attendanceLogBanner.innerHTML = `We successfully marked you as present.`
+              attendanceLogBanner.classList.add("right")
+                
               });
         }
         if(distancetoRC >= 0.15){
