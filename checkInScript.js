@@ -55,6 +55,7 @@ const checkIn = () => {
         ); 
 
         if(distancetoRC < 0.15){
+          let attendanceLogBanner = document.querySelector(".attendanceBlurb");
             console.log("Person in Radius")
               //call AirTable API
               var Airtable = require('airtable');
@@ -64,7 +65,7 @@ const checkIn = () => {
                   "fields": {
                     "Status": "Present"
                   }
-                }], (err, records) => {
+                }], (err) => {
                 if (err) {
                   console.error(err);
                   attendanceLogBanner.innerHTML = `We experienced an error attempting to mark you as present. Please report this to Ronan Armstrong, and include the following error: ${err}`
