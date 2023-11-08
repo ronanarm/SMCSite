@@ -35,6 +35,12 @@
     --fourthColorContrast:#fff;
 
     --borderRadius: 0.3rem;
+
+
+    /* --redColor: #9e241b;
+    --redDarker: #691610;
+    --redContrast: #fff; */
+
 }
 
 .mainContrastFill{
@@ -1603,4 +1609,21 @@ width:1.5rem;
     text-align:center;
     color:var(--backgroundContrast);
     width:100%;
+}
+.buttonDisabled{
+    cursor:not-allowed;
+}
+.attendanceBlurb.wrong{
+    margin-top:1rem;
+    padding:1rem;
+    max-width:var(--maxWidth);
+    background-color:var(--redColor);
+    color:var(--redColorContrast);
+}
+.attendanceBlurb.right{
+    margin-top:1rem;
+    padding:1rem;
+    max-width:var(--maxWidth);
+    background-color:var(--greenColor);
+    color:var(--greenColorContrast);
 }
