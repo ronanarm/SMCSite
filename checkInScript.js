@@ -48,6 +48,7 @@ const checkIn = () => {
 
       window.navigator.geolocation.getCurrentPosition(function(pos) {
         console.log(pos); 
+        button.innerHTML = "Calculating Position";
         //, 
         let distancetoRC = distance(pos.coords.longitude, pos.coords.latitude, -85.21229404568588, 41.12256011135039 )
         console.log(
