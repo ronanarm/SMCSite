@@ -2,7 +2,7 @@ let globalEarVars = {
     type: "boost",
     amount: 6,
     questions: 5,
-    audioSource:"audioFiles/WhiteNoise.wav",
+    audioSource:"audioFiles/PinkNoise.wav",
 }
 
 let setGlobalEarTraining = (propToSet, value) => {
@@ -18,6 +18,73 @@ let setGlobalEarTrainingFile = (file) => {
     let inputPath = URL.createObjectURL(document.getElementById('fileUploadAudioSource').files[0]);
     globalEarVars.audioSource = inputPath;
     
+}
+function getBetween(min, max) {
+    return roundAnswer(Math.random() * (max - min) + min);
+  }
+
+let logScaler = (base, RNG) => {
+    if(RNG < 50){
+        let returnValue = base * 10;
+        return returnValue + RNG
+    }
+    else if(RNG < 250){
+        let returnValue = base * 40;
+        return returnValue + RNG
+    }
+    else if(RNG < 500){
+        let returnValue = base * 80;
+        return returnValue + RNG
+    }
+    else if(RNG < 1000){
+        let returnValue = base * 160;
+        return returnValue + RNG
+    }
+    else if(RNG < 2000){
+        let returnValue = base * 450;
+        return returnValue + RNG
+    }
+    else if (RNG < 4000){
+        let returnValue = base * 600;
+        return returnValue + RNG
+    }
+    else if (RNG < 6000){
+        let returnValue = base * 1000;
+        return returnValue + RNG
+    }
+    else if (RNG < 8000){
+        let returnValue = base * 1500;
+        return returnValue + RNG
+    }
+    else if (RNG < 16000){
+        let returnValue = base * 2500;
+        return returnValue + RNG
+    }
+    else{
+        let returnValue = base * 5000;
+        return returnValue + RNG
+    }
+
+  
+
+    
+
+}
+
+let roundAnswer = (inputValue) => {
+    if(inputValue > 99 && inputValue < 1500){
+        //console.log(`Rounded Correct Value to ${inputValue}`)
+        return Math.ceil(inputValue / 10) * 10;
+        
+    }
+    else if(inputValue >= 1500){
+        //console.log(`Rounded Correct Value to ${inputValue}`)
+        return Math.ceil(inputValue / 100) * 100;
+        
+    }
+    else{
+        return Math.ceil(inputValue)
+    }
 }
 
 let displayAudioDuration = (audioDuration, audioPlayer, audioSource) => {
@@ -39,11 +106,11 @@ let displayAudioDuration = (audioDuration, audioPlayer, audioSource) => {
         currentTimeContainer.textContent = calculateTime(seekSlider.value);
       });
     seekSlider.addEventListener('change', () => {
-        console.log("Changing Time to " + seekSlider.value)
+        //console.log("Changing Time to " + seekSlider.value)
         audioSource.currentTime = seekSlider.value;
     });
     audioSource.addEventListener('timeupdate', () => {
-        console.log("Updating Time to " + audioSource.currentTime)
+        //console.log("Updating Time to " + audioSource.currentTime)
         seekSlider.value = Math.floor(audioSource.currentTime);
       });
 
@@ -144,7 +211,7 @@ audioPlayers.forEach(audioPlayer => {
         audioPlayer.closest(".audioQuizQuestion").classList.remove("renderingQuestion")
     } 
     if(audioSource.readyState == 0) {
-        console.log("Ready State at 0")
+        //console.log("Ready State at 0")
         audioSource.addEventListener('loadedmetadata', () => {
             displayAudioDuration(audioSource.duration, audioPlayer, audioSource);
             audioPlayer.closest(".audioQuizQuestion").classList.remove("renderingQuestion")
@@ -156,41 +223,64 @@ audioPlayers.forEach(audioPlayer => {
 let modifiedAudioPlayers = document.querySelectorAll(".modifiedAudio");
 modifiedAudioPlayers.forEach(modAudioPlayer => {
     
+    //Initialize Audio Context
     let context = new (window.AudioContext || window.webkitAudioContext)();
     var audioElement = modAudioPlayer.querySelector('audio');
+
+    //Create Audio Source
     var source = context.createMediaElementSource(audioElement);
+
+    //Create the EQ Filter
     let highShelf = context.createBiquadFilter();
     source.connect(highShelf);
     highShelf.connect(context.destination);
 
-    var weighted = Math.pow(Math.random(), 2);
-    var RNG = Math.floor(weighted * (12000 - 20 + 1)) + 20;
+    //Get Random Weighted Number (favoring low frequencies)
+    var weighted = Math.pow(Math.random(), 3);
+
+    //Generate the Correct Value
+    var RNG = roundAnswer(Math.floor(weighted * (15000)) + 30);
     
-    let answerPosition = Math.floor(Math.random() * 4);
+    
+    //Get correct answer position
+    let answerPosition = 1;
+    if(RNG < 50){
+        answerPosition = Math.floor(Math.random() * 2);
+    }else{
+        answerPosition = Math.floor(Math.random() * 4);
+    }
+    
+
+    //create array for answers
     let answers = [0, 0, 0, 0]
+
+    //Push correct value into array
     answers[answerPosition] = RNG;
+
+    //create a function to round the answers baseed on a logarithmic scale
+
     if(answerPosition == 0){
-        answers[1] = Math.floor(1.2 * RNG)
-        answers[2] = Math.floor(1.4 * RNG)
-        answers[3] = Math.floor(1.6 * RNG)
         
+        answers[1] = roundAnswer(logScaler(1, RNG))
+        answers[2] = roundAnswer(logScaler(2, RNG))
+        answers[3] = roundAnswer(logScaler(3, RNG))
     }
     if(answerPosition == 1){
-        answers[0] = Math.floor(0.8 * RNG)
-        answers[2] = Math.floor(1.2 * RNG)
-        answers[3] = Math.floor(1.4 * RNG)
+        answers[0] = roundAnswer(logScaler(-1, RNG))
+        answers[2] = roundAnswer(logScaler(1, RNG))
+        answers[3] = roundAnswer(logScaler(2, RNG))
         
     }
     if(answerPosition == 2){
-        answers[0] = Math.floor(0.6 * RNG)
-        answers[1] = Math.floor(0.8 * RNG)
-        answers[3] = Math.floor(1.2 * RNG)
+        answers[0] = roundAnswer(logScaler(-2, RNG))
+        answers[1] = roundAnswer(logScaler(-1, RNG))
+        answers[3] = roundAnswer(logScaler(1, RNG))
         
     }
     if(answerPosition == 3){
-        answers[0] = Math.floor(0.4 * RNG)
-        answers[1] = Math.floor(0.6 * RNG)
-        answers[2] = Math.floor(0.8 * RNG)
+        answers[0] = roundAnswer(logScaler(-3, RNG))
+        answers[1] = roundAnswer(logScaler(-2, RNG))
+        answers[2] = roundAnswer(logScaler(-1, RNG))
     }
     let i = 0;
     answers.forEach((answer, i) => {
@@ -222,7 +312,7 @@ modifiedAudioPlayers.forEach(modAudioPlayer => {
             gainAmount = 0 - globalEarVars.amount
         }
     }
-    console.log(gainAmount)
+    //console.log(gainAmount)
     highShelf.type = "peaking";
     highShelf.frequency.value = RNG;
     highShelf.gain.value = gainAmount;
