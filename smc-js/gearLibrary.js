@@ -1,32 +1,32 @@
 const preamps = {
     "API 1608": {
-        "in": "API Mic Pre Input [#]",
+        "in": "API Mic Pre In",
         "out": "API Mic Pre Output",
         "img": "img/outboard/api1608.webp",
     },
     "Neve 1023 (BAE)": {
-        "in": "Neve Mic Pre Input [#]",
+        "in": "Neve Pre",
         "out": "Neve Line Output",
         "img": "../img/outboard/bae1023.webp",
     },
     "Grace M501": {
-        "in": "Sweet 10 Rack (Bottom Row, Space 1 or 2)",
-        "out": "Sweet 10 Rack (Top Row, Space 1 or 2)",
+        "in": "Sweet Ten Rack (Bottom Row, Space 1 or 2)",
+        "out": "Sweet Ten Rack (Top Row, Space 1 or 2)",
         "img": "../img/outboard/gracem501.webp",
     },
     "Chandler TG2": {
-        "in": "Sweet 10 Rack (Bottom Row, Space 3)",
-        "out": "Sweet 10 Rack (Top Row, Space 3)",
+        "in": "Sweet Ten Rack (Bottom Row, Space 3)",
+        "out": "Sweet Ten Rack (Top Row, Space 3)",
         "img": "../img/outboard/chandlertg2.webp",
     },
     "Purple Biz": {
-        "in": "Sweet 10 Rack (Bottom Row, Space 4)",
-        "out": "Sweet 10 Rack (Top Row, Space 4)",
+        "in": "Sweet Ten Rack (Bottom Row, Space 4)",
+        "out": "Sweet Ten Rack (Top Row, Space 4)",
         "img": "../img/outboard/purplebiz.webp",
     },
     "Millennia HV-3D/8": {
         "in": "Millennia Pre Input",
-        "out": "Millennia Line Output",
+        "out": "Millennia Pre Output",
         "img": "../img/outboard/HV3d.png",
     },
 }
@@ -36,8 +36,8 @@ const preamps = {
 
 const compressors = {
     "API 2500": {
-        "in": "API 2500 Bottom Row (L or R)",
-        "out": "API 2500 Top Row (L or R)",
+        "in": "2500 Bottom Row (L or R)",
+        "out": "2500 Top Row (L or R)",
         "details": {
             "type": "VCA",
         },
@@ -53,8 +53,8 @@ const compressors = {
         "img": "../img/outboard/LA2A.webp",
     },
     "API 527": {
-        "in": "Echo Slot In (1-8)",
-        "out": "Echo Slot Out (1-8)",
+        "in": "500 Echo Slot Input (1-7)",
+        "out": "500 Echo Slot Out (1-7)",
         "details": {
             "type": "VCA",
         },
@@ -84,8 +84,14 @@ const equalizers = {
         "img": "../img/outboard/api550b.webp",
     },
     "Neve 1023 (BAE)": {
-        "in": "Neve Line Input",
+        "in": "Neve Pre",
         "out": "Neve Line Output",
         "img": "../img/outboard/bae1023.webp",
     },
 }
+const patchbay = [
+    {
+        "outputs": '',
+        "inputs": '',
+    }
+]

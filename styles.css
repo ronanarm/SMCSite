@@ -306,7 +306,10 @@ h5 {
     width:auto;
     max-width:var(--maxWidth);
     border-radius:var(--borderRadius);
-    
+    z-index:100;
+}
+.activeDetails .outboardDetails.solutionDetails{
+    flex-direction:column;
 }
 .activeDetails .outboardDetails img{
     max-width:50%;
@@ -410,11 +413,12 @@ h5 {
     align-items:stretch;
     justify-content:space-between;
     text-align:center;
-    flex-direction: c;
 }
 .randomAnswer h4{
     text-transform:uppercase;
+    font-size:0.86rem;
     font-family:var(--headFont);
+    font-weight:300;
 }
 .randomAnswers{
     padding:1rem;
@@ -1648,6 +1652,7 @@ width:1.5rem;
         align-items:center;
         overflow-y:scroll;
     }
+    
     .activeDetails .outboardDetails img{
         padding-bottom:2rem;
         max-width:90%;
