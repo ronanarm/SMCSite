@@ -14,27 +14,27 @@
     --accentColorContrast: #000;
 
     --backgroundColor: #EEF4FB;
-    --backgroundColorDarker: #919191;
+    --backgroundColorDarker: #e3e3e3;
     --backgroundColorLighter:#fff;
     --backgroundContrast: #000;
     --backgroundContrastHover: #666;
 
-    --greenColor: hsl(110, 49%, 41%);
+    --greenColor: #158441;
     --greenColorContrast: #fff;
-    --redColor: hsl(0, 49%, 41%);
+    --redColor: #dc3545;
     --redColorContrast: #fff;
 
-    --secondaryColor:#A6A4EA;
-    --secondaryColorHover:#8c8ac6;
+    --secondaryColor:#0071EB;
+    --secondaryColorHover:color-mix(in srgb, var(--secondaryColor), black 20%);
     --secondaryColorContrast:#fff;
     --secondaryContrastHover: #666;
     --secondaryColorContrastDark: #000;
 
-    --thirdColor:#E9D9F7;
-    --thirdColorContrast: #000;
-    --thirdColorHover:#dcc2f2;
+    --thirdColor:#0f659e;
+    --thirdColorContrast: #fff;
+    --thirdColorHover:color-mix(in srgb, var(--thirdColor), black 20%);
 
-    --fourthColor:#381457;
+    --fourthColor:#112353;
     --fourthColorContrast:#fff;
 
     --borderRadius: 0.3rem;
@@ -45,50 +45,47 @@
     --redContrast: #fff; */
 
 }
+/* 
 @media (prefers-color-scheme: dark) {
     :root {
         /*Measurements*/
         --maxWidth: 1100px;
+
         /*FONTS*/
         --headFont: "Lexend", sans-serif;
         --bodyFont: "Nunito", sans-serif;
-    
-        --accentColor:#EAD071;
-        --accentColorContrast: #000;
-    
-        --backgroundColor: #08060F;
-        --backgroundColorDarker: #000;
-        --backgroundColorLighter:#17112C;
+
+        /*Primary Color Palatte*/
+        --backgroundColor: #121623;
+        --backgroundColorDarker: color-mix(in srgb, var(--backgroundColor), black 20%);
+        --backgroundColorLighter:color-mix(in srgb, var(--backgroundColor), white 5%);
         --backgroundContrast: #fff;
         --backgroundContrastHover: #e3e3e3;
     
+        /*Success/Error Colors*/
         --greenColor: hsl(110, 49%, 41%);
         --greenColorContrast: #fff;
         --redColor: hsl(0, 49%, 41%);
         --redColorContrast: #fff;
-    
+
+        /*Accent Colors*/
+        --accentColor:#EAD071;
+        --accentColorContrast: #000;
+
         --secondaryColor:#5E548E;
-        --secondaryColorHover:#4C4474;
+        --secondaryColorHover:color-mix(in srgb, var(--secondaryColor), black 10%);
         --secondaryColorContrast:#fff;
         --secondaryContrastHover: #e3e3e3;
         --secondaryColorContrastDark: #fff;
-    
+
         --thirdColor:#F3F4F8;
         --thirdColorContrast: #000;
-        --thirdColorHover:#e3e3e3;
-    
+        --thirdColorHover:color-mix(in srgb, var(--thirdColor), black 10%);
+
         --fourthColor:#F3F4F8;
         --fourthColorContrast:#000;
-    
-      
-    
-    
-        /* --redColor: #9e241b;
-        --redDarker: #691610;
-        --redContrast: #fff; */
-    
     }
-}
+} */
 
 
 .mainContrastFill{
@@ -520,11 +517,16 @@ width:1.5rem;
 .toggleFilters {
     display: none;
 }
-.showOnScroll{
-    opacity:0;
-    transform:translateY(50px);
-    transition:opacity 0.4s, transform 0.6s;
+
+@media(min-width:800px){
+    .showOnScroll{
+        opacity:0;
+        transform:translateY(50px);
+        transition:opacity 0.4s, transform 0.6s;
+    }
 }
+
+
 .fadeInScroll{
     transform:translateY(0);
     opacity:1;
@@ -892,6 +894,7 @@ width:1.5rem;
     margin:0;
     margin-bottom:-0.2rem;
 }
+
 .polar{
     
     background-repeat:no-repeat;
@@ -1276,6 +1279,7 @@ width:1.5rem;
 .triBoxSingle{
     flex-basis:33%;
     background-color:var(--secondaryColor);
+    color:var(--secondaryColorContrast);
     border-radius:var(--borderRadius);
     margin:1rem;
     padding:2rem;
@@ -1674,4 +1678,19 @@ width:1.5rem;
     max-width:var(--maxWidth);
     background-color:var(--greenColor);
     color:var(--greenColorContrast);
+}
+.searchBox{
+    padding:0.6rem 1rem;
+    border-radius:var(--borderRadius);
+    border:1px solid var(--secondaryColor);
+    flex-basis:300px;
+}
+.searchBox:focus{
+    border:1px solid var(--fourthColor);
+    outline:none;
+}
+.flexHead{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }

@@ -39,16 +39,21 @@ assets.forEach(asset => {
 })
 
 let updateFilters = (filterType, filterValue) => {
-  if(!filters[filterType]){
-    filters[filterType] = [filterValue]
-  }else if(filters[filterType].includes(filterValue)){
-    filters[filterType] = filters[filterType].filter(item => item !== filterValue)
+  if(filterType == "TextSearch"){
+    filters[filterType] = [filterValue];
   }else{
-    filters[filterType].push(filterValue)
+    if(!filters[filterType]){
+      filters[filterType] = [filterValue]
+    }else if(filters[filterType].includes(filterValue)){
+      filters[filterType] = filters[filterType].filter(item => item !== filterValue)
+    }else{
+      filters[filterType].push(filterValue)
+    }
+    if(filters[filterType].length < 1){
+      delete filters[filterType]
+    }
   }
-  if(filters[filterType].length < 1){
-    delete filters[filterType]
-  }
+  
   
   let assets = document.querySelectorAll(".assetBox");
   console.log(filters)
@@ -67,15 +72,23 @@ let updateFilters = (filterType, filterValue) => {
 let filters = {};
 
 let showIfMatch = (asset) => {
-  let shouldShow = false;
+  let shouldShow = true;
   for (const filterObj in filters) {
-    console.log(filters[filterObj])
-    if(filters[filterObj].includes(asset.querySelector(`.asset${filterObj}`).innerHTML)){
-      shouldShow = true
+    if(filterObj === "Category"){
+      console.log(filters[filterObj])
+      if(!filters[filterObj].includes(asset.querySelector(`.asset${filterObj}`).innerHTML)){
+        shouldShow = false
+      }
     }
+    if(filterObj == "TextSearch"){
+      if(!asset.innerHTML.toLowerCase().includes(filters[filterObj][0].toLowerCase())){
+        shouldShow = false
+      }
+    }
+    
   }
 
-  if(asset.querySelector(".assetCategory").innerHTML){}
+  //If the asset contains text matching 
   if(shouldShow){
     asset.classList.add("active")
   }

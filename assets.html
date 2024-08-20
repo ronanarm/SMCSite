@@ -74,7 +74,10 @@
        
     </div>
     <div class="assetFilters">
-        <h2>Filter by</h2>
+        <div class="flexHead">
+            <h2>Filter by</h2>
+            <input type="text" placeholder="Search..." onkeyup="updateFilters('TextSearch', this.value)" class="searchBox">
+        </div>
         <div class="assetControls">
             <fieldset class="styledFieldset">
                 <legend>Resource Type</legend>
@@ -82,6 +85,7 @@
                 <label><input class="assetCheck" type="checkbox" id="WebResource" value="Web Resource" onclick="updateFilters('Category', 'Web Resource')" /><span class="checkboxFill"></span> Web Resource</label>
                 <label><input class="assetCheck" type="checkbox" id="Software" value="Software"  onclick="updateFilters('Category', 'Software')" /><span class="checkboxFill"></span> Software</label>
             </fieldset>
+            
             
         </div>
         
