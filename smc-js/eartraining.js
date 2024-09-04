@@ -142,7 +142,7 @@ let displayAudioDuration = (audioDuration, audioPlayer, audioSource) => {
 
 let createEQQuiz = () => {
     console.log("Creating Quiz")
-    document.querySelector(".audioQuiz").innerHTML = "";
+    document.querySelector(".audioQuiz").innerHTML = `<div class="audioQuizLoading"><span>Loading</span></div>`;
     for (let i = 0; i < globalEarVars.questions; i++) {
         let qNumber = i + 1;
         const htmlToInject = `
@@ -209,10 +209,12 @@ audioPlayers.forEach(audioPlayer => {
     if (audioSource.readyState > 0) {
         displayAudioDuration(audioSource.duration, audioPlayer, audioSource);
         audioPlayer.closest(".audioQuizQuestion").classList.remove("renderingQuestion")
+
     } 
     if(audioSource.readyState == 0) {
         //console.log("Ready State at 0")
         audioSource.addEventListener('loadedmetadata', () => {
+            document.querySelector(".audioQuizLoading").classList.add("loaded");
             displayAudioDuration(audioSource.duration, audioPlayer, audioSource);
             audioPlayer.closest(".audioQuizQuestion").classList.remove("renderingQuestion")
         });
