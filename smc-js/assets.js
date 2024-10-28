@@ -7,6 +7,13 @@ let assets = [
     //     assetURL:"https://ronanarmstrong.com",
     // },
     {
+        assetName: "SMC Input Lists",
+        assetCategory:"Web Resource",
+        assetSubCategory:"SMC Tool",
+        assetDescription:"A fillable PDF input list for the main studio at the SMC.",
+        assetURL:"assets/SMC Input List Fillable.pdf",
+    },
+    {
         assetName: "Photopea",
         assetCategory:"Web Resource",
         assetSubCategory:"Web Apps",
