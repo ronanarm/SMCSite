@@ -1771,3 +1771,11 @@ width:1.5rem;
     width:100%;
     text-align:center; 
 }
+.blockSearch{
+    display:block;
+    margin-bottom:1rem;
+    width:calc(100% - 2rem);
+}
+.gear{
+    flex-grow:100;
+}

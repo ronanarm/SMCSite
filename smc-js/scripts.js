@@ -130,6 +130,7 @@ document.addEventListener('click',function(e){
  });
 
 let meetsConditions = (mic) => {
+    
     if(mic.classList.contains("active")){
         mic.classList.remove("active")
     }
@@ -181,6 +182,13 @@ let meetsConditions = (mic) => {
             return
         }
     }
+    if(filters.search?.length > 0){
+        let micName = mic.querySelector("h4").textContent;
+        if(!micName.toLowerCase().includes(filters.search.toLowerCase())){
+            return
+        }
+
+    }
     showMic(mic)
     
 }
@@ -190,6 +198,7 @@ let update = () => {
     let arrayOfMics = Array.from(document.getElementsByClassName("micObj"));
 
     if(Object.keys(filters).length == 0){
+        console.log("Show All")
         arrayOfMics.forEach((mic) => {
             showMic(mic)
         })
@@ -213,6 +222,9 @@ let updateFilter = (checkbox, valToUpdate) => {
         modifyFilterArray(checkbox.value, valToUpdate, checkbox.checked)
     }
     if(valToUpdate == "lowFreq" || valToUpdate == "highFreq" || valToUpdate == "spl"){
+        filters[valToUpdate] = checkbox.value;
+    }
+    if(valToUpdate == "search"){
         filters[valToUpdate] = checkbox.value;
     }
     update()

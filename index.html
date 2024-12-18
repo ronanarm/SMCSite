@@ -133,9 +133,12 @@
                
             </div>
         </div>
-        <div class="gearList" id="gearList">
-            
+        <div class="gear">
+            <div class="gearList" id="gearList">
+                <input type="text" id="searchBar" oninput="updateFilter(this, 'search')" placeholder="Search Gear" class="searchBox blockSearch">
+            </div>
         </div>
+        
         <div class="flashBack">
             <div class="showOnFlashcard defaultHide flashcardInstructions">
                 <button onclick="previousFlashcard()"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 30L8 16L20 2"/></svg> <span>PREVIOUS</span></button>
