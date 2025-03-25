@@ -1779,3 +1779,160 @@ width:1.5rem;
 .gear{
     flex-grow:100;
 }
+
+
+/* ---- AUDIO PLAYGROUND SPECIFIC STYLES ---- */
+#visualizer {
+    width: 100%;
+    height: 200px;
+    background-color: var(--backgroundColorDarker);
+    border-radius: var(--borderRadius);
+    margin-top: 1rem;
+}
+
+.audioInfo {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: var(--backgroundColorDarker);
+    border-radius: var(--borderRadius);
+    color: var(--backgroundContrast);
+}
+
+.flexAlign {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.flexAlign button {
+    flex: 1;
+    min-width: 80px;
+}
+
+/* Audio Player Progress Bar */
+.audioProgress {
+    width: 100%;
+    height: 10px;
+    background-color: var(--backgroundColorDarker);
+    border-radius: 5px;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.audioProgressFill {
+    height: 100%;
+    background-color: var(--secondaryColor);
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+/* Time Display */
+.timeDisplay {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--headFont);
+    color: var(--backgroundContrast);
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Preset Buttons */
+.presetButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.presetButton {
+    background-color: var(--thirdColor);
+    color: var(--thirdColorContrast);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--borderRadius);
+    cursor: pointer;
+    font-family: var(--headFont);
+    transition: all 0.1s;
+}
+
+.presetButton:hover {
+    background-color: var(--thirdColorHover);
+    box-shadow: 0px 4px 5px -4px var(--thirdColor);
+}
+
+.presetButton.active {
+    background-color: var(--secondaryColor);
+    color: var(--secondaryColorContrast);
+}
+
+/* Tooltip for controls */
+.controlTooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.controlTooltip .tooltipText {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--fourthColor);
+    color: var(--fourthColorContrast);
+    text-align: center;
+    border-radius: var(--borderRadius);
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+}
+
+.controlTooltip .tooltipText::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--fourthColor) transparent transparent transparent;
+}
+
+.controlTooltip:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.stickySide{
+    position:sticky;
+    top:1rem;
+}
+.subLabel i{
+    margin-right:1rem;
+}
+.subLabel{
+    justify-content:stretch;
+    margin-bottom:0.5rem;
+}
+.subLabel input {
+    flex-grow: 100;
+}
+.subLabelText{
+    font-size:0.87rem;
+    text-transform:uppercase;
+    font-family:var(--headFont);
+    color: var(--thirdColor);
+}
+.audioProcessor .micBody{
+    justify-content:stretch;
+    gap:1rem;
+}
+.audioProcessor .micBody > * {
+    flex: 1;
+}

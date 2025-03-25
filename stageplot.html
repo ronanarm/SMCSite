@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>SMC Tools - Stage Plot Designer</title>
+</head>
+<body class="" id="body">
+    <!--HEADER-->
+    <div class="mainContentBox">
+        <div class="header">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                    <rect width="184.87" height="35.36" x="23.19" y="162" rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="50.15" height="35.36" x="224.97" y="162" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="125.97" height="35.36" x="23.19" y="102.64" rx="17.68" ry="17.68" class="mainLighterFill"></rect>
+                    <rect width="87.87" height="35.36" x="23.19" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="147.15" height="35.36" x="127.98" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="109.06" height="35.36" x="166.07" y="102.64"  rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="81.74" height="35.36" x="23.19" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="153.83" height="35.36" x="122.98" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                </svg><span>SMC TOOLS</span>
+            </h1>
+            <button onclick="document.querySelector('.mobileMenu').classList.toggle('display')" class="toggleMenu mainBtn">MENU</button>
+            <ul class="mobileMenu">
+                <li><a href="index.html" class="menuLink">Microphones</a></li>
+                <li><a href="eartraining.html" class="menuLink">Ear Training</a></li>
+                <li><a href="assets.html" class="menuLink">Assets</a></li>
+                <li><a href="randomchain.html" class="menuLink">Patchbay Practice</a></li>
+                <li><a href="stageplot.html" class="menuLink">Stage Plot</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="bodyContent dropShadow">
+        <!-- The Stage Plot tool will be initialized here by the JavaScript -->
+    </div>
+    
+    <!-- Instructions modal -->
+    <div id="instructionsModal" class="modal" style="display: none;">
+        <div class="modalContent">
+            <span class="closeModal">&times;</span>
+            <h3>Stage Plot Designer Instructions</h3>
+            <ul>
+                <li><strong>Add equipment:</strong> Click on any item in the equipment library to add it to the canvas.</li>
+                <li><strong>Move equipment:</strong> Click and drag items to position them on the stage.</li>
+                <li><strong>Select equipment:</strong> Click on an item to select it and show its controls.</li>
+                <li><strong>Resize equipment:</strong> Use the + and - buttons to increase or decrease the size.</li>
+                <li><strong>Rotate equipment:</strong> Use the rotation buttons to rotate items left or right.</li>
+                <li><strong>Add text labels:</strong> Click the text icon to add a label to an item.</li>
+                <li><strong>Delete equipment:</strong> Drag an item to the trash icon in the bottom-right corner.</li>
+                <li><strong>Adjust canvas:</strong> Change the width and height of the canvas using the controls above it.</li>
+                <li><strong>Enable grid:</strong> Check the "Show Grid" option to display a grid for easier alignment.</li>
+                <li><strong>Save your work:</strong> Click the "Save Plot" button to save your stage plot locally.</li>
+                <li><strong>Load saved work:</strong> Click the "Load Plot" button to restore your saved stage plot.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="smc-js/stagePlot.js"></script>
+    
+    <style>
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modalContent {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .closeModal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .stagePlotLayout {
+                flex-direction: column;
+            }
+            
+            .libraryPanel {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .equipmentGrid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</body>
+</html>

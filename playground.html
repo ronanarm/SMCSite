@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>SMC Tools - Audio Playground</title>
+</head>
+<body id="body">
+    <!--HEADER-->
+    <div class="mainContentBox">
+        <div class="header">
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+                    <rect width="184.87" height="35.36" x="23.19" y="162" rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="50.15" height="35.36" x="224.97" y="162" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="125.97" height="35.36" x="23.19" y="102.64" rx="17.68" ry="17.68" class="mainLighterFill"></rect>
+                    <rect width="87.87" height="35.36" x="23.19" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="147.15" height="35.36" x="127.98" y="221.36" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="109.06" height="35.36" x="166.07" y="102.64"  rx="17.68" ry="17.68" class="mainContrastFill"></rect>
+                    <rect width="81.74" height="35.36" x="23.19" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                    <rect width="153.83" height="35.36" x="122.98" y="43.27" rx="17.68" ry="17.68" class="secondaryColorFill"></rect>
+                </svg><span>SMC TOOLS</span>
+            </h1>
+            <button onclick="document.querySelector('.mobileMenu').classList.toggle('display')" class="toggleMenu mainBtn">MENU</button>
+            <ul class="mobileMenu">
+                <li><a href="index.html" class="menuLink">Microphones</a></li>
+                <li><a href="eartraining.html" class="menuLink">Ear Training</a></li>
+                <li><a href="assets.html" class="menuLink">Assets</a></li>
+                <li><a href="randomchain.html" class="menuLink">Patchbay Practice</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="mainContentBox">
+        <div class="bodyContent">
+            <!-- File Upload Section -->
+            <div class="sideBar stickySide">
+                <h3>Audio File</h3>
+                <fieldset>
+                    <legend>Upload Audio</legend>
+                    <input type="file" id="audioFileInput" accept="audio/*" class="fileInput">
+                    <div class="audioInfo" id="audioInfo"></div>
+                </fieldset>
+                
+                <!-- Playback Controls -->
+                <fieldset>
+                    <legend>Playback Controls</legend>
+                    <div class="flexAlign">
+                        <button id="playButton" class="mainBtn">Play</button>
+                        <button id="stopButton" class="mainBtn">Stop</button>
+                        <button id="pauseButton" class="mainBtn">Pause</button>
+                        <button id="restartButton" class="mainBtn">Restart</button>
+                    </div>
+                </fieldset>
+
+                <!-- Main Volume Control -->
+                <fieldset>
+                    <legend>Master Volume</legend>
+                    <label for="volumeSlider" class="rangeLabel ">
+                        <span>Volume: </span>
+                        <i id="volumeValue">50%</i>
+                        <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                    </label>
+                </fieldset>
+            </div>
+
+            <!-- EQ Section -->
+            <div class="gearList audioProcessor">
+                <div class="micObj active">
+                    <div class="micHead">
+                        <h4>4-Band EQ</h4>
+                    </div>
+                    <div class="micBody">
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>Low Cut</legend>
+                                <span class="subLabelText">Frequency</span>
+                                <label for="lowCutEQ" class="rangeLabel subLabel">
+                                    <i id="lowCutEQFreqValue">1 Hz</i>
+                                    <input type="range" id="lowCutEQ" min="1" max="500" value="1">
+                                </label>
+                            </fieldset>
+                            
+                            <fieldset class="styledFieldset">
+                                <legend>Low Band</legend>
+                                <span class="subLabelText">Gain</span>
+                                <label for="lowEQ" class="rangeLabel subLabel">
+                                    <i id="lowEQValue">0 dB</i>
+                                    <input type="range" id="lowEQ" min="-12" max="12" value="0">
+                                </label>
+                                <span class="subLabelText">Frequency</span>
+                                <label for="lowEQFreq" class="rangeLabel subLabel">
+                                    <i id="lowEQFreqValue">100 Hz</i>
+                                    <input type="range" id="lowEQFreq" min="20" max="400" value="100">
+                                </label>
+                            </fieldset>
+                            
+                            <fieldset class="styledFieldset">
+                                <legend>Low-Mid Band</legend>
+                                <span class="subLabelText">Gain</span>
+                                <label for="lowMidEQ" class="rangeLabel subLabel">
+                                    <i id="lowMidEQValue">0 dB</i>
+                                    <input type="range" id="lowMidEQ" min="-12" max="12" value="0">
+                                </label>
+                                <span class="subLabelText">Frequency</span>
+                                <label for="lowMidEQFreq" class="rangeLabel subLabel">
+                                    <i id="lowMidEQFreqValue">1000 Hz</i>
+                                    <input type="range" id="lowMidEQFreq" min="200" max="2000" value="1000">
+                                </label>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>High-Mid Band</legend>
+                                <span class="subLabelText">Gain</span>
+                                <label for="highMidEQ" class="rangeLabel subLabel">
+                                    <i id="highMidEQValue">0 dB</i>
+                                    <input type="range" id="highMidEQ" min="-12" max="12" value="0">
+                                </label>
+                                <span class="subLabelText">Frequency</span>
+                                <label for="highMidEQFreq" class="rangeLabel subLabel">
+                                    <i id="highMidEQFreqValue">3000 Hz</i>
+                                    <input type="range" id="highMidEQFreq" min="1000" max="12000" value="3000">
+                                </label>
+                            </fieldset>
+                            
+                            <fieldset class="styledFieldset">
+                                <legend>High Band</legend>
+                                <span class="subLabelText">Gain</span>
+                                <label for="highEQ" class="rangeLabel subLabel">
+                                    <i id="highEQValue">0 dB</i>
+                                    <input type="range" id="highEQ" min="-12" max="12" value="0">
+                                </label>
+                                <span class="subLabelText">Frequency</span>
+                                <label for="highEQFreq" class="rangeLabel subLabel">
+                                    <i id="highEQFreqValue">10000 Hz</i>
+                                    <input type="range" id="highEQFreq" min="3000" max="18000" value="10000">
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compressor Section -->
+                <div class="micObj active">
+                    <div class="micHead">
+                        <h4>Compressor</h4>
+                    </div>
+                    <div class="micBody">
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>Threshold & Ratio</legend>
+                                <span class="subLabelText">Threshold</span>
+                                <label for="threshold" class="rangeLabel subLabel">
+                                    <i id="thresholdValue">-24 dB</i>
+                                    <input type="range" id="threshold" min="-60" max="0" value="-24">
+                                </label>
+                                <span class="subLabelText">Ratio</span>
+                                <label for="ratio" class="rangeLabel subLabel">
+                                    <i id="ratioValue">4:1</i>
+                                    <input type="range" id="ratio" min="1" max="20" value="4">
+                                </label>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>Timing</legend>
+                                <span class="subLabelText">Attack</span>
+                                <label for="attack" class="rangeLabel subLabel">
+                                    <i id="attackValue">50 ms</i>
+                                    <input type="range" id="attack" min="0" max="1000" value="50">
+                                </label>
+                                <span class="subLabelText">Release</span>
+                                <label for="release" class="rangeLabel subLabel">
+                                    <i id="releaseValue">250 ms</i>
+                                    <input type="range" id="release" min="0" max="1000" value="250">
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gate Section -->
+                <div class="micObj active">
+                    <div class="micHead">
+                        <h4>Noise Gate</h4>
+                    </div>
+                    <div class="micBody">
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>Threshold</legend>
+                                <span class="subLabelText">Threshold</span>
+                                <label for="gateThreshold" class="rangeLabel subLabel">
+                                    <i id="gateThresholdValue">-50 dB</i>
+                                    <input type="range" id="gateThreshold" min="-100" max="0" value="-50">
+                                </label>
+                            </fieldset>
+                        </div>
+                        
+                        <div class="specTable">
+                            <fieldset class="styledFieldset">
+                                <legend>Timing</legend>
+                                <span class="subLabelText">Attack</span>
+                                <label for="gateAttack" class="rangeLabel subLabel">
+                                    <i id="gateAttackValue">10 ms</i>
+                                    <input type="range" id="gateAttack" min="0" max="1000" value="10">
+                                </label>
+                                <span class="subLabelText">Release</span>
+                                <label for="gateRelease" class="rangeLabel subLabel">
+                                    <i id="gateReleaseValue">100 ms</i>
+                                    <input type="range" id="gateRelease" min="0" max="1000" value="100">
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="audioPlayground.js"></script>
+</body>
+</html>
