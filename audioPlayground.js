@@ -11,15 +11,26 @@ let lowEQFilter;
 let lowMidEQFilter;
 let highMidEQFilter;
 let highEQFilter;
+let eqInputNode;
+let eqOutputNode;
 
 // Compressor node
 let compressor;
+let compressorInputNode;
+let compressorOutputNode;
 
 // Gate implementation
 let gateNode;
 let gateGain;
 let gateAnalyser;
+let gateInputNode;
+let gateOutputNode;
 let lastGateTime = 0;
+let lastAboveThresholdTime = 0;
+let isGateOpen = false;
+let currentGateState = 'closed'; // possible states: 'closed', 'attacking', 'open', 'holding', 'releasing'
+let releaseStartGain = 0;
+let releaseStartTime = 0;
 
 // Playback state
 let isPlaying = false;
@@ -59,7 +70,13 @@ function initAudio() {
     // Set up gate controls
     document.getElementById('gateThreshold').addEventListener('input', updateGate);
     document.getElementById('gateAttack').addEventListener('input', updateGate);
+    document.getElementById('gateHold').addEventListener('input', updateGate);
     document.getElementById('gateRelease').addEventListener('input', updateGate);
+
+    // Set up bypass controls
+    document.getElementById('eqBypass').addEventListener('change', updateBypass);
+    document.getElementById('compressorBypass').addEventListener('change', updateBypass);
+    document.getElementById('gateBypass').addEventListener('change', updateBypass);
 
     // Initialize UI values
     updateUIValues();
@@ -108,6 +125,14 @@ function setupAudioNodes() {
     analyser = audioContext.createAnalyser();
     analyser.fftSize = 2048;
 
+    // Create bypass nodes for each module
+    eqInputNode = audioContext.createGain();
+    eqOutputNode = audioContext.createGain();
+    compressorInputNode = audioContext.createGain();
+    compressorOutputNode = audioContext.createGain();
+    gateInputNode = audioContext.createGain();
+    gateOutputNode = audioContext.createGain();
+
     // Create EQ filters
     lowCutFilter = audioContext.createBiquadFilter();
     lowCutFilter.type = 'highpass';
@@ -152,21 +177,22 @@ function setupAudioNodes() {
     gateAnalyser.fftSize = 1024;
     gateAnalyser.smoothingTimeConstant = 0.3;
 
-    // Connect the nodes
-    // Source -> LowCut -> LowEQ -> LowMidEQ -> HighMidEQ -> HighEQ -> Compressor -> GateAnalyser -> GateGain -> Gain -> Destination
+    // Connect the EQ chain
     lowCutFilter.connect(lowEQFilter);
     lowEQFilter.connect(lowMidEQFilter);
     lowMidEQFilter.connect(highMidEQFilter);
     highMidEQFilter.connect(highEQFilter);
-    highEQFilter.connect(compressor);
-    compressor.connect(gateAnalyser);
-    compressor.connect(gateGain);
-    gateGain.connect(gainNode);
-    gainNode.connect(analyser);
-    analyser.connect(audioContext.destination);
+    highEQFilter.connect(eqOutputNode);
 
-    // Start gate processing
-    processGate();
+    // Connect the compressor chain
+    compressor.connect(compressorOutputNode);
+
+    // Connect the gate chain
+    gateAnalyser.connect(gateGain);
+    gateGain.connect(gateOutputNode);
+
+    // Update routing based on current bypass states
+    updateBypass();
 }
 
 function playAudio() {
@@ -185,7 +211,7 @@ function playAudio() {
     // Create a new source node (they can only be used once)
     audioSource = audioContext.createBufferSource();
     audioSource.buffer = audioBuffer;
-    audioSource.connect(lowCutFilter);
+    audioSource.connect(eqInputNode);
 
     if (isPaused) {
         // Resume from pause position
@@ -254,9 +280,12 @@ function updateVolume() {
     volumeValue.textContent = `${volumeSlider.value}%`;
 }
 
-function updateEQ() {
+function updateEQ(event) {
     if (!audioContext) return;
 
+    // Get the slider that triggered the event
+    const slider = event ? event.target : null;
+    
     // Update low cut filter
     const lowCutFreq = parseFloat(document.getElementById('lowCutEQ').value);
     lowCutFilter.frequency.value = lowCutFreq;
@@ -295,7 +324,7 @@ function updateEQ() {
     document.getElementById('highEQFreqValue').textContent = `${highFreq} Hz`;
 }
 
-function updateCompressor() {
+function updateCompressor(event) {
     if (!compressor) return;
 
     // Get values from sliders
@@ -317,11 +346,17 @@ function updateCompressor() {
     document.getElementById('releaseValue').textContent = `${document.getElementById('release').value} ms`;
 }
 
-function updateGate() {
-    // Gate parameters are used in the processGate function
-    document.getElementById('gateThresholdValue').textContent = `${document.getElementById('gateThreshold').value} dB`;
-    document.getElementById('gateAttackValue').textContent = `${document.getElementById('gateAttack').value} ms`;
-    document.getElementById('gateReleaseValue').textContent = `${document.getElementById('gateRelease').value} ms`;
+function updateGate(event) {
+    const gateThreshold = document.getElementById('gateThreshold').value;
+    const gateAttack = document.getElementById('gateAttack').value;
+    const gateHold = document.getElementById('gateHold').value;
+    const gateRelease = document.getElementById('gateRelease').value;
+    
+    // Update display values
+    document.getElementById('gateThresholdValue').textContent = `${gateThreshold} dB`;
+    document.getElementById('gateAttackValue').textContent = `${gateAttack} ms`;
+    document.getElementById('gateHoldValue').textContent = `${gateHold} ms`;
+    document.getElementById('gateReleaseValue').textContent = `${gateRelease} ms`;
 }
 
 function processGate() {
@@ -348,25 +383,147 @@ function processGate() {
     // Get gate parameters
     const threshold = parseFloat(document.getElementById('gateThreshold').value);
     const attackTime = parseFloat(document.getElementById('gateAttack').value) / 1000;
+    const holdTime = parseFloat(document.getElementById('gateHold').value) / 1000;
     const releaseTime = parseFloat(document.getElementById('gateRelease').value) / 1000;
     
     const now = audioContext.currentTime;
     const timeDelta = now - lastGateTime;
     lastGateTime = now;
-    
-    // Apply gate
-    if (db < threshold) {
-        // Signal is below threshold, apply release
-        const releaseGain = Math.max(0, gateGain.gain.value - (timeDelta / releaseTime));
-        gateGain.gain.setValueAtTime(releaseGain, now);
-    } else {
-        // Signal is above threshold, apply attack
-        const attackGain = Math.min(1, gateGain.gain.value + (timeDelta / attackTime));
-        gateGain.gain.setValueAtTime(attackGain, now);
+
+    // Signal is above threshold
+    if (db >= threshold) {
+        lastAboveThresholdTime = now;
+        
+        if (currentGateState === 'closed' || currentGateState === 'releasing') {
+            // Start attack phase
+            currentGateState = 'attacking';
+            releaseStartTime = 0;
+        }
+        
+        if (currentGateState === 'attacking') {
+            // Calculate attack ramp
+            const currentGain = gateGain.gain.value;
+            const attackGain = Math.min(1, currentGain + (timeDelta / attackTime));
+            gateGain.gain.setTargetAtTime(attackGain, now, attackTime / 3);
+            
+            if (attackGain >= 0.99) {
+                currentGateState = 'open';
+            }
+        }
+    }
+    // Signal is below threshold
+    else {
+        const timeSinceAboveThreshold = now - lastAboveThresholdTime;
+        
+        // Check if we should still be holding
+        if (timeSinceAboveThreshold <= holdTime) {
+            if (currentGateState !== 'holding') {
+                currentGateState = 'holding';
+            }
+            // Maintain current gain during hold
+            gateGain.gain.setValueAtTime(gateGain.gain.value, now);
+        }
+        // Start release phase after hold time
+        else {
+            if (currentGateState !== 'releasing') {
+                currentGateState = 'releasing';
+                releaseStartTime = now;
+                releaseStartGain = gateGain.gain.value;
+            }
+            
+            if (currentGateState === 'releasing') {
+                const releaseProgress = (now - releaseStartTime) / releaseTime;
+                if (releaseProgress >= 1) {
+                    // Fully closed
+                    gateGain.gain.setTargetAtTime(0, now, 0.01);
+                    currentGateState = 'closed';
+                } else {
+                    // Smooth exponential release
+                    const releaseGain = releaseStartGain * Math.pow(0.01, releaseProgress);
+                    gateGain.gain.setTargetAtTime(releaseGain, now, releaseTime / 3);
+                }
+            }
+        }
     }
     
     // Continue processing
     requestAnimationFrame(processGate);
+}
+
+function updateBypass() {
+    if (!audioContext) return;
+
+    // Disconnect all nodes first
+    try {
+        eqInputNode.disconnect();
+        eqOutputNode.disconnect();
+        compressorInputNode.disconnect();
+        compressorOutputNode.disconnect();
+        gateInputNode.disconnect();
+        gateOutputNode.disconnect();
+        lowCutFilter.disconnect();
+        lowEQFilter.disconnect();
+        lowMidEQFilter.disconnect();
+        highMidEQFilter.disconnect();
+        highEQFilter.disconnect();
+        compressor.disconnect();
+        gateAnalyser.disconnect();
+        gateGain.disconnect();
+    } catch (e) {
+        // Ignore disconnection errors
+    }
+
+    // Get bypass states
+    const eqEnabled = document.getElementById('eqBypass').checked;
+    const compressorEnabled = document.getElementById('compressorBypass').checked;
+    const gateEnabled = document.getElementById('gateBypass').checked;
+
+    let currentOutput = eqInputNode;
+
+    // EQ Section
+    if (eqEnabled) {
+        currentOutput.connect(lowCutFilter);
+        // Connect the EQ chain
+        lowCutFilter.connect(lowEQFilter);
+        lowEQFilter.connect(lowMidEQFilter);
+        lowMidEQFilter.connect(highMidEQFilter);
+        highMidEQFilter.connect(highEQFilter);
+        highEQFilter.connect(eqOutputNode);
+        currentOutput = eqOutputNode;
+    }
+
+    // Compressor Section
+    currentOutput.connect(compressorInputNode);
+    if (compressorEnabled) {
+        compressorInputNode.connect(compressor);
+        compressor.connect(compressorOutputNode);
+        currentOutput = compressorOutputNode;
+    } else {
+        compressorInputNode.connect(compressorOutputNode);
+        currentOutput = compressorOutputNode;
+    }
+
+    // Gate Section
+    currentOutput.connect(gateInputNode);
+    if (gateEnabled) {
+        gateInputNode.connect(gateAnalyser);
+        gateAnalyser.connect(gateGain);
+        gateGain.connect(gateOutputNode);
+        currentOutput = gateOutputNode;
+    } else {
+        gateInputNode.connect(gateOutputNode);
+        currentOutput = gateOutputNode;
+    }
+
+    // Connect to final output
+    currentOutput.connect(gainNode);
+    gainNode.connect(analyser);
+    analyser.connect(audioContext.destination);
+
+    // Restart gate processing if it's enabled
+    if (gateEnabled) {
+        processGate();
+    }
 }
 
 function updateUIValues() {
